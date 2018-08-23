@@ -22,9 +22,9 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem[Junghanns and Schaeffer(2001)]{jj2}
-A.~Junghanns and J.~Schaeffer, ``Sokoban: Enhancing general single-agent search
-  methods using domain knowledge,'' \emph{Artificial Intelligence}, vol. 129,
-  pp. 219--251, 2001.
+\bibitem[Ma et~al.(2018)Ma, Xie, and Brown]{paper1}
+H.~Ma, H.~Xie, and D.~Brown, ``Eco-driving assistance system for a manual
+  transmission bus based on machine learning,'' \emph{IEEE TRANSACTIONS ON
+  INTELLIGENT TRANSPORTATION SYSTEMS}, vol.~19, pp. 572--581, 2018.
 
 \end{thebibliography}

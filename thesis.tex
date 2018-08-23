@@ -3,6 +3,8 @@
 
 \documentclass[a4paper,12pt,times,numbered,print,index,draft,custombib]{Classes/PhDThesisPSnPDF}
 %\usepackage[spanish]{babel}
+%\usepackage[utf8]{inputenc}
+%\selectlanguage{spanish}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -117,7 +119,7 @@
 %\include{Dedication/dedication}
 %\include{Declaration/declaration}
 %\include{Acknowledgement/acknowledgement}
-\include{Abstract/abstract}
+\include{Abstract/abstract} %Este será ahora el resumen
 
 % *********************** Adding TOC and List of Figures ***********************
 
@@ -134,6 +136,8 @@
 
 % ******************************** Main Matter *********************************
 \mainmatter
+
+\include{Introduccion/introduccion}
 
 \include{Chapter1/chapter1}
 \include{Chapter2/chapter2}
