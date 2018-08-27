@@ -136,9 +136,9 @@
 
 % *********** To change the name of Table of Contents / LOF and LOT ************
 
-%\renewcommand{\contentsname}{My Table of Contents}
-%\renewcommand{\listfigurename}{My List of Figures}
-%\renewcommand{\listtablename}{My List of Tables}
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\listtablename}{Lista de Tablas}
 
 
 % ********************** TOC depth and numbering depth *************************
@@ -185,11 +185,24 @@
 %% Uncomment the following lines to have todonotes.
 
 \ifsetDraft
-	\usepackage[colorinlistoftodos,spanish]{todonotes}
-	\newcommand{\mynote}[1]{\todo[author=haguirre,size=\small,inline,color=green!40]{#1}}
+  \usepackage[colorinlistoftodos,spanish]{todonotes}
+  \reversemarginpar
+  \setlength{\marginparwidth}{2.2cm}
+  \newcommand{\mynote}[1]{\todo[size=\small,color=green!40,linecolor=green!50!black]{#1}}
+  \newcommand{\correction}[1]{\todo[size=\small,color=red!40,linecolor=red!50!black]{#1}}
 \else
-	\newcommand{\mynote}[1]{}
-	\newcommand{\listoftodos}{}
+  \newcommand{\mynote}[1]{}
+  \newcommand{\correction}[1]{}
+  \newcommand{\listoftodos}{}
 \fi
+%*****************************Quitar Chapter de titulo****************************
+\RequirePackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bf}{\thechapter.}{20pt}{\huge\bf}
+
+%*************************** Poner punto luego de los titulos****************************************
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
+\makeatother
 
 
