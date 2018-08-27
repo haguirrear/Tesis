@@ -1165,7 +1165,7 @@ wish to left align your text}
 % Normal abstract in the thesis
   \cleardoublepage
   \setsinglecolumn
-  \chapter*{\centering \Large Abstract}
+  \chapter*{\centering \Large Resumen}
   \thispagestyle{empty}
 \fi
 }
@@ -1178,7 +1178,7 @@ wish to left align your text}
 % Normal introduction in the thesis
   \cleardoublepage
   \setsinglecolumn
-  \chapter*{\Large Introducción}
+  \chapter*{\LARGE Introducción}
   \addcontentsline{toc}{chapter}{Introducción}
   \thispagestyle{empty}
 }
