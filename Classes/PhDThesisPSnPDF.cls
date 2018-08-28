@@ -957,7 +957,7 @@ wish to left align your text}
 % University Crest Long if college crest is defined
 \ifPHD@collegeshield%
 	{\usebox{\PHD@crest}}
-	\vspace{.15\PHD@titlepagespacing}
+	\vspace{.05\PHD@titlepagespacing}
 \fi
 
 % Title
@@ -978,7 +978,7 @@ wish to left align your text}
 
 % Curso
 {\usebox{\PHD@curso}}
-\vspace*{0.15em}
+\vspace*{0.10em}
 
 % Department and University
 {\usebox{\PHD@dept}}
@@ -1009,7 +1009,7 @@ wish to left align your text}
 % Codigo
 \ifPHD@codigo%
 {\usebox{\PHD@codigo}}
-\vspace*{0.25em}
+\vspace*{0.05em}
 \fi
 
 % Submission Text
@@ -1226,6 +1226,7 @@ wish to left align your text}
 \newsavebox{\PHD@dept}
 \begin{lrbox}{\PHD@dept}
   \begin{minipage}[c]{\textwidth}
+  \setlength{\parskip}{-0.15em}
     \centering {\Large \@dept \par}
 	       {\Large \bfseries \@university \par}
   \end{minipage}
@@ -1361,12 +1362,12 @@ wish to left align your text}
 			- \totalheightof{\usebox{\PHD@crest}}
 			- \totalheightof{\usebox{\PHD@collegecrest}}
 			- \totalheightof{\usebox{\PHD@curso}}
+      - \totalheightof{\usebox{\PHD@dept}}
 			- \totalheightof{\usebox{\PHD@author}}
-                   	- \totalheightof{\usebox{\PHD@supervisor}}
-                   	- \totalheightof{\usebox{\PHD@advisor}}
-                   	- \totalheightof{\usebox{\PHD@codigo}}
-                   	- \totalheightof{\usebox{\PHD@horario}}
-			- \totalheightof{\usebox{\PHD@dept}}
+     	- \totalheightof{\usebox{\PHD@supervisor}}
+     	- \totalheightof{\usebox{\PHD@advisor}}
+     	- \totalheightof{\usebox{\PHD@horario}}
+      - \totalheightof{\usebox{\PHD@codigo}}
 			- \totalheightof{\usebox{\PHD@submission}}
 			- \totalheightof{\usebox{\PHD@collegedate}}
 }
