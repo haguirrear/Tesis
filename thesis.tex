@@ -1,7 +1,7 @@
 % ******************************* PhD Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
-\documentclass[a4paper,12pt,times,numbered,print,index,draft,custombib]{Classes/PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,times,numbered,print,index,custombib]{Classes/PhDThesisPSnPDF}
 %\usepackage[spanish]{babel}
 %\usepackage[utf8]{inputenc}
 %\selectlanguage{spanish}
@@ -119,6 +119,7 @@
 %\include{Dedication/dedication}
 %\include{Declaration/declaration}
 %\include{Acknowledgement/acknowledgement}
+\setlength{\parskip}{0.5em}
 \include{Abstract/abstract} %Este será ahora el resumen
 
 % *********************** Adding TOC and List of Figures ***********************
@@ -137,7 +138,7 @@
 % ******************************** Main Matter *********************************
 \mainmatter
 
-\setlength{\parskip}{0.5em}
+
 \include{Introduccion/introduccion}
 
 \include{Chapter1/chapter1}
@@ -182,12 +183,12 @@
 
 % ********************************** Appendices ********************************
 
-\begin{appendices} % Using appendices environment for more functunality
+%\begin{appendices} % Using appendices environment for more functunality
 
-\include{Appendix1/appendix1}
-\include{Appendix2/appendix2}
+%\include{Appendix1/appendix1}
+%\include{Appendix2/appendix2}
 
-\end{appendices}
+%\end{appendices}
 
 % *************************************** Index ********************************
 \printthesisindex % If index is present

@@ -30,7 +30,7 @@ La habilidad de conducción, es la habilidad que posee el conductor para control
 
 El estilo de conducción es más complejo de definir debido a que para algunos autores involucra factores subjetivos como la actitud del conductor, el humor o el cansancio. Para \citeauthor{6957822} \cite{6957822}, el estilo de conducción  es la manera en la que la tarea de conducción es realizada. Esto se traduce a la forma en la que el conductor opera el vehículo (Pedal de aceleración, timón, freno, etc.). Esto se diferencia de el patrón de conducción tan solo porque no se asocia con un recorrido en especifico sino con el conductor.
 
-También se puede expresar el estilo de conducción en niveles de agresividad como \citeauthor{6294318} \cite{6294318}. Como la agresividad en los eventos de conducción esta asociada con un mayor consumo de combustible y a menor seguridad vial, definitivamente juega aun papel importante dentro del concepto de estilo de conducción. \mynote{Se debe definir cual es el concepto que se manejará en la tesis}
+También se puede expresar el estilo de conducción en niveles de agresividad como \citeauthor{6294318} \cite{6294318}. Debido a que la agresividad en los eventos de conducción esta asociada con un mayor consumo de combustible y a menor seguridad vial, definitivamente juega un papel importante dentro del concepto de estilo de conducción. Esta es la forma en la que se definirá el estilo de conducción para esta tesis.
 
 \section{Estado del arte según algoritmos usados}
 Se procederá a mostrar las implementaciones e investigaciones desarrolladas en la actualidad clasificados según el tipo de algoritmo que se uso para la caracterización de el estilo de conducción
@@ -45,23 +45,24 @@ Usando Lógica Difusa se definieron 3 niveles de estilo de conducción: {\it Nor
 \begin{figure}[htbp!]
 \centering
 \includegraphics[width=0.8\textwidth]{Fig2}
-\caption[Terminología estilo de conducción]{Resultados del sistema de reconocimiento de estilo de conducción en \cite{6957822}}
+\caption[Resultados del sistema de reconocimiento de estilo de conducción]{Resultados del sistema de reconocimiento de estilo de conducción en \cite{6957822}}
 \label{fig:2.2}
 \end{figure}
 
-Usar lógica difusa no es la única manera de clasificar estilos de conducción. \citeauthor{4938719} \cite{4938719} presentó un método de clasificación basado en el análisis del perfil de la sobreaceleración (la derivada de la aceleración respecto al tiempo). En su investigación define al estilo de manejo como un comportamiento dinámico, Un conductor puede manejar de forma calmada por un momento y de forma agresiva en otro momento. Por este motivo el método de clasificación que propone predice el estilo de conducción del usuario en tiempo real. 
+Usar lógica difusa no es la única manera de clasificar estilos de conducción. \citeauthor{4938719} \cite{4938719} presentó un método de clasificación basado en el análisis del perfil de la sobreaceleración (la derivada de la aceleración respecto al tiempo). En su investigación define al estilo de manejo como un comportamiento dinámico, Un conductor puede manejar de forma calmada por un momento y de forma agresiva en otro momento. Por este motivo el método de clasificación que propone predice el estilo de conducción del usuario en tiempo real.
 El algoritmo funciona de la siguiente manera:
 \begin{enumerate}
+    \itemsep0em
     \item Calcula el perfil de sobreaceleración durante una ventana de tiempo predefinido.
     \item Calcula la desviación estándar de la sobreaceleración durante toda la ventana de tiempo.
     \item Detecta el tipo de calzada actual y el nivel de congestión de tráfico usando el algoritmo propuesto en \cite{Highway_cap_manual}.
     \item Calcula la proporción de sobreaceleración dividiendo la desviación estándar con un valor promedio que depende de el tipo de calzada y el nivel de tráfico actuales.
     \item Dependiendo del resultado de la división realizada el conductor puede ser clasificado como {\it Calmado, Normal} o {\it Agresivo} usando reglas con umbrales predefinidos.
 \end{enumerate}
-\begin{figure}[H]
+\begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.7\textwidth]{Fig3}
-\caption{Tasa de consumo de combustible según diferentes estilos de conducción \cite{4938719}.}
+\includegraphics[width=0.75\textwidth]{Fig3}
+\caption[Tasa de consumo de combustible según diferentes estilos de conducción]{Tasa de consumo de combustible según diferentes estilos de conducción \cite{4938719}.}
 \label{fig:2.3}
 \end{figure}
 Este resultado dependerá mucho de la duración definida para la ventana de tiempo. Se recomendó usar una ventana de duración de 6 a 9 segundos para detectar los cambios de estilo de conducción oportunamente.
@@ -72,9 +73,153 @@ Se realizó también una comparación entre los 3 diferentes estilos de conducci
 
 Se ha presentado dos algoritmos basados en reglas que usan tanto múltiples variables \cite{6957822} como una sola \cite{4938719} para predecir el estilo de conducción del usuario. Sin embargo, los resultados de estos sistemas dependen en gran medida del valor de los umbrales escogidos para realizar la clasificación.
 
-\section{Algoritmos basados en Datos}
+\subsection{Algoritmos basados en datos}
 Cuando se tiene una cantidad muy grande de datos, es difícil analizarlos para obtener las reglas que guíen al algoritmo. Es entonces cuando los algoritmos basados en datos entran en acción. Estos algoritmos, en comparación con los basados en reglas, pueden manejar una mayor cantidad de datos y deducir umbrales consistentes con estos datos sin que estos dependan de un experto en el tema. A continuación se presentarán los distintos tipos de algoritmos basados en datos y su uso en el reconocimiento de estilos de conducción.
 
-\subsection{Algoritmos de aprendizaje de máquinas no supervisados}
-Los algoritmos no supervisados no necesitan que los datos obtenidos por medio de los sensores en la actividad de conducción estén etiquetados. Es decir
+%********* Reinicia la cuenta de los \subsubsection y coloca el formato A,B,..****************************
+\counterwithout{subsubsection}{subsection}
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+%********************************************************************************************************
 
+\subsubsection{Algoritmos de aprendizaje de máquinas no supervisados}
+Los algoritmos no supervisados no necesitan que los datos obtenidos por medio de los sensores en la actividad de conducción estén etiquetados. Es decir, si se registra los datos de un ciclo de conducción para un conductor, este registro no necesita estar asociado con el estilo de conducción que mantuvo este conductor. Esta clase de algoritmos busca patrones en los datos y los segrega teniendo en cuenta sus similitudes y diferencias en diferentes grupos sin etiquetar.
+
+\citeauthor{constantinescu} \cite{constantinescu} propuso el análisis de el estilo de conducción por medio de dos algoritmos: Hierarchical Cluster analysis (HCA) y Principal Component Analysis (PCA).
+
+HCA es un algoritmo de {\it machine learning} que trata de categorizar a cada individuo en grupos con características similares. Es muy útil cuando no se conoce con exactitud el número de grupos. Por medio de un análisis estadístico trata de minimizar la varianza dentro de cada grupo y a la vez aumentarla entre diferentes grupos. En este caso, el algoritmo de agrupamiento jerárquico consiste en empezar con grupos consistentes de un solo miembro y consecutivamente ir combinando los dos grupos más cercanos, hasta solo tener un grupo.
+
+PCA es un método estadístico que usa una trasformación para convertir un posible conjunto de variables relacionadas entre si en otro conjunto menor de variables linealmente independientes, en las que la varianza sea maximizada.
+
+Para este caso en particular se trabajo con dispositivo GPS que se encargaba de medir la velocidad y aceleración del vehículo monitorizado a una frecuencia de muestreo de \SI[mode=text]{1}{Hz}. De esta data se escogieron los siguientes parámetros:
+\begin{enumerate}
+    \itemsep0em
+    \item Velocidad por encima de los \SI[mode=text]{60}{Km/h}.
+    \item Velocidad promedio.
+    \item Desviación estándar de la velocidad.
+    \item Desviación estándar de la aceleración.
+    \item Promedio de la aceleración positiva.
+    \item Desviación estándar de la aceleración positiva.
+    \item Promedio de la aceleración negativa o frenado.
+    \item Desviación estándar del frenado.
+    \item Trabajo mecánico, que se calculó sumando toda la energía cinética positiva requerida para aumentar la velocidad del vehículo.
+\end{enumerate}
+
+Luego del análisis realizado se encontraron 6 grupos o clusters y se describió cada uno de estos como se puede observar en el Tabla~\ref{diag:2.1} usando los 5 componentes principales resultantes al aplicar PCA.
+
+\begin{table}[htbp!]
+\centering
+\begin{tabular}{crrrr}
+\toprule
+\multicolumn{1}{l}{\textbf{Cluster}} & \multicolumn{1}{c}{\textbf{Agresividad}} & \multicolumn{1}{c}{\textbf{Velocidad}} & \multicolumn{1}{c}{\textbf{Aceleración}} & \multicolumn{1}{c}{\textbf{Frenado}} \\ \midrule
+1 & Moderadamente baja & Baja-Moderada & Moderada & Suave-Moderado \\
+2 & Muy baja & Baja-Moderada & Baja-Moderada & Suave-Moderado \\
+3 & Moderadamente alta & Moderada & Moderada & Repentino \\
+4 & Neutral & Moderada & Alta & Moderado \\
+5 & Neutral & Moderada-Alta & Baja-Moderada & Moderado-Repentino \\
+6 & Alta & Alta & Alta & Repentino \\ \bottomrule
+\end{tabular}
+\caption[Descripción de los clusters obtenidos]{Descripción de los clusters obtenidos en \cite{constantinescu}.}
+\label{diag:2.1}
+\end{table}
+
+Los algoritmos no supervisados tienen una gran ventaja, no se necesitan conocer las etiquetas de clasificación {\it a priori}. Esto significa que la definición de etiquetas no limita o influencia de alguna manera a los resultados obtenidos, ya que los grupos o clusters formados dependen solo de los datos obtenidos. Sin embargo, luego de hallar los grupos se necesita realizar un análisis para determinar su naturaleza.
+
+\subsubsection{Algoritmos de aprendizaje de máquinas supervisados}
+
+Los algoritmos supervisados, a diferencia de los no supervisados, necesitan tener un conocimiento previo de los datos que se tienen. Es decir, cada uno de los datos recolectados deben estar asociados a una etiqueta o clase ya predefinida.
+
+Uno de los algoritmos más utilizados es el de K-Nearest Neighbors (k-NN), que se utilizó junto a Dynamic Time Warping (DTW) en el sistema de reconocimiento propuesto por \citeauthor{6083078} \cite{6083078}. El objetivo de este sistema es reconocer maniobras agresivas para dar un feedback al conductor y monitorizarlo, mejorando así la seguridad vial. Para lograrlo usaron los sensores presentes en un smartphone (acelerómetro, giroscopio, GPS y cámara frontal). Este sistema trabaja grabando la información de todos los sensores durante 5 minutos, luego analiza si ha ocurrido alguna maniobra potencialmente agresiva. Si una maniobra de este tipo ocurrió, conserva la información para un análisis posterior. En cambio, si no ocurrió ninguna maniobra de este tipo, borra la data para ahorrar espacio en disco.
+
+Para la clasificación de cada maniobra detectada se usa Dynamic Time Warping (DTW), el cual es un algoritmo que es capaz de analizar la similaridad entre dos señales que no necesariamente tengan la misma duración y probablemente tengan un desfase. En la Fig.~\ref{fig:2.4} se puede observar una comparación entre una comparación de una distancia Euclidiana y otra usando DTW en dos señales muy parecidas en forma pero que no se encuentran en fase.
+
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.95\textwidth]{Fig4}
+\caption[Comparación de señales usando distancia Euclidiana y DTW]{Comparación de señales usando distancia Euclidiana y DTW \cite{Keogh2005}.}
+\label{fig:2.4}
+\end{figure}
+
+El algoritmo consiste en crear una matriz de deformación $n \times m$, siendo $n$ y $m$ los números de puntos en cada señal. Esta matriz se llena calculando distancias entre cada punto, sin importar si se encuentran en el mismo instante temporal. Luego se dibuja el camino con la distancia más corta que une el inicio de las señales con el final de estas Fig.~\ref{fig:2.5} {\bf (B)}. La suma de distancias en este camino se define como la distancia entre las dos señales analizadas y se puede usar para comparar la similitud y clasificar señales usando modelos. Información detallada sobre este algoritmo se puede encontrar en \cite{Keogh2005}.
+\begin{figure}[htpb!]
+\centering
+\includegraphics[width=0.85\textwidth]{Fig5}
+\caption[Algoritmo de {\it Dynamic Time Warping}]{{\bf A)} Dos señales con forma muy similar pero desfasadas. {\bf B)} Matriz de deformación usada para encontrar el camino de deformación. {\bf C)} El resultado del alineamiento y deformación usando DTW. \cite{Keogh2005}.}
+\label{fig:2.5}
+\end{figure}
+
+Para poder usar DTW se necesitó contar con señales modelo para cada tipo de maniobra a detectar. Se tuvo un total de 120 señales modelo en total, cada una asociada con una maniobra específica.  Usando DTW se puede obtener una medida de distancia entre las señales a clasificar y las señales modelo. Luego se aplicó K-Nearest Neighbors (k-NN) para clasificar cada señal. Lo que hace k-NN es tener en guardadas las señales modelos y al momento de clasificar una nueva señal calcula la distancia con las señales modelos, selecciona las $k$ distancias menores y dependiendo de la clase que tenga más señales cercanas, esta nueva señal es clasificada.
+
+Para realizar la clasificación de señales solo se utilizó los datos de $g_x$, $a_y$ y $e_x$ (giroscopio en $x$, aceleración en $y$ y ángulo de rotación de Euler en $x$ respectivamente). Se puede observar en el Tabla.~\ref{diag:2.2} los porcentajes de reconocimiento exitoso por cada maniobra.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[htbp!]
+\centering
+\begin{tabular}{@{}lc@{}}
+\toprule
+Maniobra & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}Porcentaje de reconocimiento exitoso (\%)\end{tabular}} \\ \midrule
+Giro a la derecha (\ang{90}) & 92 \\
+Giro a la izquierda (\ang{90}) & 83 \\
+Vuelta en U (\ang{180}) & 77 \\
+Giro a la derecha agresivo & 100 \\
+Giro a la izquierda agresivo & 100 \\
+Vuelta en U agresiva & 100 \\
+Cambio de carril agresivo (derecha) & 100 \\
+Cambio de carril agresivo (izquierda) & 83 \\ \bottomrule
+\end{tabular}
+\caption[Porcentaje de reconocimiento de maniobras de conducción]{Porcentaje de reconocimiento exitoso de maniobras de conducción \cite{6083078}.}
+\label{diag:2.2}
+\end{table}
+
+Otro algoritmo aplicado usualmente al reconocimiento de estilos de manejo es el uso de {\it Redes Neuronales}. \citeauthor{7727682} \cite{7727682} utilizó redes neuronales para clasificar estilos de manejo y {\it Algoritmos Genéticos} para optimizar estas redes e incluso elegir los parámetros de entrada. El sistema que propuso se enfocaba en obtener un clasificador que pueda ser utilizado por un sistema embebido de potencia baja. Por lo cuál utilizo un tipo de red neuronal llamado {\it Extreme Learning Machines}. Este tipo de red neuronal, como se observa en la Fig.~\ref{fig:2.6}, se caracteriza por tener tan solo una capa oculta entre las entradas y las salidas. Además se eligen los pesos entre las entradas y la única capa oculta de manera aleatoria y nunca se actualizan. Esta red neuronal solo aprende los pesos entre la capa oculta y las salidas en una sola iteración. Por esta razón este tipo de red resulta siendo muy ligero y de entrenamiento muy veloz.
+
+\begin{figure}[htpb!]
+\centering
+\includegraphics[width=0.8\textwidth]{Fig6}
+\caption[Topología de una Red Neuronal usada para Extreme Learning Machines]{Topología de una Red Neuronal usada para Extreme Learning Machines \cite{7727682}.}
+\label{fig:2.6}
+\end{figure}
+
+\citeauthor{7727682} recolectó un conjunto de 21 variables de 11 conductores, pero no utilizó toda la información. En lugar de eso utilizó un algoritmo genético llamado {\it Non-Dominated Sorting Genetic Algorithm}. Este tipo de algoritmo genético realiza una optimización multiobjetivo. Lo cual significa que trata de optimizar más de una variable a la vez. En este caso se trata de minimizar 3 variables: el número de atributos de entrada para la red neuronal, el número de neuronas en la capa oculta y la tasa de error resultante de la red neuronal entrenada.
+
+Normalmente no existe una solución que permita minimizar las 3 variables a la vez. Debido a esto, lo que se busca en realidad se conoce como {\it Soluciones Óptimas de Pareto}. Este término hace referencia a las soluciones en las que no se puede optimizar ninguna variable sin degradar a otra. Este tipo de algoritmos genéticos contiene el concepto de Soluciones óptimas de Pareto como función de fitness, de tal manera que permite optimizar las 3 variables antes mencionadas.
+
+Finalmente, se escoge una solución que tiene un 90.1\% de tasa de reconocimiento, 8 entradas para la red neuronal y 16 neuronas en la capa oculta.
+
+\subsubsection{Algoritmos que combinan los enfoques supervisados y no supervisados}
+
+Los algoritmos supervisados y no supervisados aparecen como dos categorías totalmente separadas. Sin embargo, esto no significa que no se puedan usar juntos y combinar para mejorar sus ventajas o reducir sus desventajas.
+
+\citeauthor{6629603} \cite{6629603} propuso un sistema
+que utiliza los sensores inerciales embebidos en un auto para identificar posibles maniobras inseguras y proporcionar un adecuado feedback hacia el conductor. Además también propone caracterizar y diferenciar conductores solo usando datos de los sensores inerciales, para poder diferenciar cuando dos personas distintas utilizan un mismo vehículo. Para lograr su objetivo primero analiza la información de los sensores para determinar un conjunto básico de maniobras: frenado, aceleración y giro.
+
+
+Se utiliza el algoritmo de aprendizaje no supervisado {\it K-means Clustering} para identificar las maniobras. Este algoritmo consiste en generar $k$ semillas, de preferencia no aleatorias ya que la inicialización tiene una gran influencia en los clusters resultantes, que representarán la media o el centroide de cada cluster, luego por medio de la definición de una métrica de distancia (Euclidiana, citiblock, etc.) se asignan los datos al cluster del centroide más cercano. Luego de clasificar a todos los datos se vuelve a calcular el centroide de cada cluster (que muy probablemente cambiará de posición) y se repite los pasos hasta converger en una posición de centroides.
+
+
+Al identificar las maniobras se usan dos fuentes de datos distintas: la primera cuenta con la inforamcion completa de los sensores, asi como también un análisis estadístico de estos (mínimo, máximo, media, varianza, etc.); en cambio, la segunda solo cuenta con el análisis estadístico. Y los resultados que se obtienen son muy similares. El desempeño de el clasificador no se reduce al no incluir los datos completos de los sensores, sino que puede usar tan solo sus datos estadísticos.
+
+Luego se utiliza el algoritmo supervisado {\it Support Vector Machines} (SVM). Este algoritmo usa los datos con sus respectivas clases y trata de crear un hiperplano que separe todos los datos pertenecientes a una clase de la otra. Mientras este hiperplano tenga una mayor distancia con los miembos más cercanos de ambas clases, se tendrá un menor error de generalización. El encontrar este hiperplano que separe a las dos clases en la mayoría de los casos no es posible en el espacio definido por los atributos actuales de los datos. Debido a esto se mapean los datos en un espacio con más dimensiones para lograr encontrar este hiperplano de una manera más sencilla.
+
+%\section{Estado del arte según sensores usados}
+
+%Para usar los algoritmos mencionados anteriormente se han usado diferentes clases de sensores para medir distintas variables, ya sea directa o indirectamente. En el Tabla~\ref{diag:2.3} se puede apreciar los sensores utilizados en las investigaciones mencionadas.
+
+%\begin{table}[htpb!]
+%\centering
+%\begin{tabular}{@{}ll@{}}
+%\toprule
+%Sensores usados & Referencias \\ \midrule
+%Inertial Measurement Unit (IMU)& \cite{4938719}, \cite{7727682}, \cite{6629603} \\
+%Acelerómetros de bajo costo & \cite{6294318} \\
+%Smartphone & \cite{6083078} \\
+%GPS & \cite{constantinescu} \\
+%GPS e IMU & \cite{6957822} \\ \bottomrule
+%\end{tabular}
+%\caption{Resumen de sensores usados en las investigaciones mencionadas}
+%\label{diag:2.3}
+%\end{table}
+
+%\subsection{Inertial Measurement Unit}
+%Esta clase de sensores se puede encontrar bajo un rango de precios muy amplio. Existen unidades por debajo de los \textdollar 10 como el MPU-6050 que cuenta con un giroscopio de 3 ejes, un acelerómetro de 3 ejes y funciona a un voltaje de \SI[mode=text]{2.3}{V} a \SI[mode=text]{3.4}{V} \cite{invensense}
