@@ -26,11 +26,11 @@ Como se aprecia en la Fig~\ref{fig:2.1}, se entiende por un evento de conducció
 
 De la misma manera, El patrón de conducción se define como el resultado de los eventos de conducción sujetos a condiciones de manejo, como el clima o el tipo de calzada. Este resultado se puede expresar como un perfil de velocidades. en el que están incluidos todos los datos que se pueden obtener partiendo de este perfil de velocidad, como por ejemplo: duración del viaje, velocidad promedio y demanda de potencia calculada.
 
-La habilidad de conducción, es la habilidad que posee el conductor para controlar el vehículo. Este concepto se usa para diferenciar entre un conductor experimentado o profesional de un conductor promedio.
+La habilidad de conducción es la habilidad que posee el conductor para controlar el vehículo. Este concepto se usa para diferenciar entre un conductor experimentado o profesional de un conductor promedio.
 
-El estilo de conducción es más complejo de definir debido a que para algunos autores involucra factores subjetivos como la actitud del conductor, el humor o el cansancio. Para \citeauthor{6957822} \cite{6957822}, el estilo de conducción  es la manera en la que la tarea de conducción es realizada. Esto se traduce a la forma en la que el conductor opera el vehículo (Pedal de aceleración, timón, freno, etc.). Esto se diferencia de el patrón de conducción tan solo porque no se asocia con un recorrido en especifico sino con el conductor.
+El estilo de conducción es más complejo de definir debido a que para algunos autores involucra factores subjetivos como la actitud del conductor, el humor o el cansancio. Para \citeauthor{6957822} \cite{6957822}, el estilo de conducción  es la manera en la que la tarea de conducción es realizada. Esto se traduce en la forma en la que el conductor opera el vehículo (Pedal de aceleración, timón, freno, etc.). Esto se diferencia de el patrón de conducción tan solo porque no se asocia con un recorrido en especifico sino con un conductor.
 
-También se puede expresar el estilo de conducción en niveles de agresividad como \citeauthor{6294318} \cite{6294318}. Debido a que la agresividad en los eventos de conducción esta asociada con un mayor consumo de combustible y a menor seguridad vial, definitivamente juega un papel importante dentro del concepto de estilo de conducción. Esta es la forma en la que se definirá el estilo de conducción para esta tesis.
+También, se puede expresar el estilo de conducción en niveles de agresividad como \citeauthor{6294318} \cite{6294318}. Debido a que la agresividad en los eventos de conducción esta asociada con un mayor consumo de combustible y a menor seguridad vial, definitivamente juega un papel importante dentro del concepto de estilo de conducción. Esta es la forma en la que se definirá el estilo de conducción para esta tesis.
 
 \section{Estado del arte según algoritmos usados}
 Se procederá a mostrar las implementaciones e investigaciones desarrolladas en la actualidad clasificados según el tipo de algoritmo que se uso para la caracterización de el estilo de conducción
@@ -49,7 +49,7 @@ Usando Lógica Difusa se definieron 3 niveles de estilo de conducción: {\it Nor
 \label{fig:2.2}
 \end{figure}
 
-Usar lógica difusa no es la única manera de clasificar estilos de conducción. \citeauthor{4938719} \cite{4938719} presentó un método de clasificación basado en el análisis del perfil de la sobreaceleración (la derivada de la aceleración respecto al tiempo). En su investigación define al estilo de manejo como un comportamiento dinámico, Un conductor puede manejar de forma calmada por un momento y de forma agresiva en otro momento. Por este motivo el método de clasificación que propone predice el estilo de conducción del usuario en tiempo real.
+Usar lógica difusa no es la única manera de clasificar estilos de conducción. \citeauthor{4938719} \cite{4938719} presentó un método de clasificación basado en el análisis del perfil de la sobreaceleración (la derivada de la aceleración respecto al tiempo). En su investigación define al estilo de manejo como un comportamiento dinámico, Un conductor puede manejar de forma calmada por un momento y de forma agresiva en otro momento. Por este motivo, el método de clasificación que propone predice el estilo de conducción del usuario en tiempo real.
 El algoritmo funciona de la siguiente manera:
 \begin{enumerate}
     \itemsep0em
@@ -84,7 +84,7 @@ Cuando se tiene una cantidad muy grande de datos, es difícil analizarlos para o
 \subsubsection{Algoritmos de aprendizaje de máquinas no supervisados}
 Los algoritmos no supervisados no necesitan que los datos obtenidos por medio de los sensores en la actividad de conducción estén etiquetados. Es decir, si se registra los datos de un ciclo de conducción para un conductor, este registro no necesita estar asociado con el estilo de conducción que mantuvo este conductor. Esta clase de algoritmos busca patrones en los datos y los segrega teniendo en cuenta sus similitudes y diferencias en diferentes grupos sin etiquetar.
 
-\citeauthor{constantinescu} \cite{constantinescu} propuso el análisis de el estilo de conducción por medio de dos algoritmos: Hierarchical Cluster analysis (HCA) y Principal Component Analysis (PCA).
+\citeauthor{constantinescu} \cite{constantinescu} propuso el análisis de el estilo de conducción por medio de dos algoritmos: Hierarchical Cluster Analysis (HCA) y Principal Component Analysis (PCA).
 
 HCA es un algoritmo de {\it machine learning} que trata de categorizar a cada individuo en grupos con características similares. Es muy útil cuando no se conoce con exactitud el número de grupos. Por medio de un análisis estadístico trata de minimizar la varianza dentro de cada grupo y a la vez aumentarla entre diferentes grupos. En este caso, el algoritmo de agrupamiento jerárquico consiste en empezar con grupos consistentes de un solo miembro y consecutivamente ir combinando los dos grupos más cercanos, hasta solo tener un grupo.
 
@@ -108,6 +108,7 @@ Luego del análisis realizado se encontraron 6 grupos o clusters y se describió
 
 \begin{table}[htbp!]
 \centering
+\caption[Descripción de los clusters obtenidos]{Descripción de los clusters obtenidos en \cite{constantinescu}.}
 \begin{tabular}{crrrr}
 \toprule
 \multicolumn{1}{l}{\textbf{Cluster}} & \multicolumn{1}{c}{\textbf{Agresividad}} & \multicolumn{1}{c}{\textbf{Velocidad}} & \multicolumn{1}{c}{\textbf{Aceleración}} & \multicolumn{1}{c}{\textbf{Frenado}} \\ \midrule
@@ -118,11 +119,10 @@ Luego del análisis realizado se encontraron 6 grupos o clusters y se describió
 5 & Neutral & Moderada-Alta & Baja-Moderada & Moderado-Repentino \\
 6 & Alta & Alta & Alta & Repentino \\ \bottomrule
 \end{tabular}
-\caption[Descripción de los clusters obtenidos]{Descripción de los clusters obtenidos en \cite{constantinescu}.}
 \label{diag:2.1}
 \end{table}
 
-Los algoritmos no supervisados tienen una gran ventaja, no se necesitan conocer las etiquetas de clasificación {\it a priori}. Esto significa que la definición de etiquetas no limita o influencia de alguna manera a los resultados obtenidos, ya que los grupos o clusters formados dependen solo de los datos obtenidos. Sin embargo, luego de hallar los grupos se necesita realizar un análisis para determinar su naturaleza.
+Los algoritmos no supervisados tienen una gran ventaja, no se necesitan conocer las etiquetas de clasificación {\it a priori}. Esto significa que la definición de etiquetas no limita o influencia de alguna manera a los resultados obtenidos, ya que los grupos o clusters formados dependen solo de los datos usados. Sin embargo, luego de hallar los grupos se necesita realizar un análisis para determinar su naturaleza.
 
 \subsubsection{Algoritmos de aprendizaje de máquinas supervisados}
 
@@ -156,6 +156,7 @@ Para realizar la clasificación de señales solo se utilizó los datos de $g_x$,
 % \usepackage{booktabs}
 \begin{table}[htbp!]
 \centering
+\caption[Porcentaje de reconocimiento de maniobras de conducción]{Porcentaje de reconocimiento exitoso de maniobras de conducción \cite{6083078}.}
 \begin{tabular}{@{}lc@{}}
 \toprule
 Maniobra & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}Porcentaje de reconocimiento exitoso (\%)\end{tabular}} \\ \midrule
@@ -168,7 +169,6 @@ Vuelta en U agresiva & 100 \\
 Cambio de carril agresivo (derecha) & 100 \\
 Cambio de carril agresivo (izquierda) & 83 \\ \bottomrule
 \end{tabular}
-\caption[Porcentaje de reconocimiento de maniobras de conducción]{Porcentaje de reconocimiento exitoso de maniobras de conducción \cite{6083078}.}
 \label{diag:2.2}
 \end{table}
 
@@ -202,24 +202,31 @@ Al identificar las maniobras se usan dos fuentes de datos distintas: la primera 
 
 Luego se utiliza el algoritmo supervisado {\it Support Vector Machines} (SVM). Este algoritmo usa los datos con sus respectivas clases y trata de crear un hiperplano que separe todos los datos pertenecientes a una clase de la otra. Mientras este hiperplano tenga una mayor distancia con los miembos más cercanos de ambas clases, se tendrá un menor error de generalización. El encontrar este hiperplano que separe a las dos clases en la mayoría de los casos no es posible en el espacio definido por los atributos actuales de los datos. Debido a esto se mapean los datos en un espacio con más dimensiones para lograr encontrar este hiperplano de una manera más sencilla.
 
-%\section{Estado del arte según sensores usados}
+\section{Estado del arte según sensores usados}
 
-%Para usar los algoritmos mencionados anteriormente se han usado diferentes clases de sensores para medir distintas variables, ya sea directa o indirectamente. En el Tabla~\ref{diag:2.3} se puede apreciar los sensores utilizados en las investigaciones mencionadas.
+Para usar los algoritmos mencionados anteriormente se han usado diferentes clases de sensores para medir distintas variables, ya sea directa o indirectamente. En el Tabla~\ref{diag:2.3} se puede apreciar los sensores utilizados en las investigaciones mencionadas.
 
-%\begin{table}[htpb!]
-%\centering
-%\begin{tabular}{@{}ll@{}}
-%\toprule
-%Sensores usados & Referencias \\ \midrule
-%Inertial Measurement Unit (IMU)& \cite{4938719}, \cite{7727682}, \cite{6629603} \\
-%Acelerómetros de bajo costo & \cite{6294318} \\
-%Smartphone & \cite{6083078} \\
-%GPS & \cite{constantinescu} \\
-%GPS e IMU & \cite{6957822} \\ \bottomrule
-%\end{tabular}
-%\caption{Resumen de sensores usados en las investigaciones mencionadas}
-%\label{diag:2.3}
-%\end{table}
+\begin{table}[htpb!]
+\centering
+\caption{Resumen de sensores usados en las investigaciones mencionadas}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Sensores usados & Referencias \\ \midrule
+Inertial Measurement Unit (IMU)& \cite{4938719}, \cite{7727682}, \cite{6629603} \\
+Acelerómetros de bajo costo & \cite{6294318} \\
+Smartphone & \cite{6083078} \\
+GPS & \cite{constantinescu} \\
+GPS e IMU & \cite{6957822} \\ \bottomrule
+\end{tabular}
+\label{diag:2.3}
+\end{table}
 
-%\subsection{Inertial Measurement Unit}
-%Esta clase de sensores se puede encontrar bajo un rango de precios muy amplio. Existen unidades por debajo de los \textdollar 10 como el MPU-6050 que cuenta con un giroscopio de 3 ejes, un acelerómetro de 3 ejes y funciona a un voltaje de \SI[mode=text]{2.3}{V} a \SI[mode=text]{3.4}{V} \cite{invensense}
+\subsection{Inertial Measurement Unit}
+Esta clase de sensores se puede encontrar bajo un rango de precios muy amplio. Existen unidades por debajo de los \textdollar 10 como el MPU-6050 (Fig.~\ref{fig:2.7}) que cuenta con un giroscopio de 3 ejes, un acelerómetro de 3 ejes y funciona a un voltaje de \SI[mode=text]{2.3}{V} a \SI[mode=text]{3.4}{V} \cite{invensense}
+
+\begin{figure}[htpb!]
+\centering
+\includegraphics[width=0.3\textwidth]{Fig7}
+\caption[MPU-5050 de Invensense]{MPU-5050 de Invensense \cite{invensense}.}
+\label{fig:2.7}
+\end{figure}

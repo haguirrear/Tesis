@@ -15,17 +15,40 @@
 %********************************** %First Section  **************************************
 \section{Motivación General}
 
-En un futuro, se espera que la mayoría de los autos sean autónomos, probablemente eléctricos y que el manejo del sistema de transporte este interconectado y sea inteligente. Para lograr eso se necesita un entendimiento profundo del comportamiento humano a la hora de realizar la tarea de conducir.
+En un futuro, se espera que la mayoría de los autos sean autónomos, probablemente eléctricos y que el manejo del sistema de transporte este interconectado y sea inteligente. Para lograr esta integración del transporte se necesita un entendimiento profundo del comportamiento humano a la hora de realizar la tarea de conducir.
 
-Este conocimiento no sólo será útil en el futuro, sino que en el presente nos ayudaría a tener vehículos que sean conducidos de una manera eficiente, que generen menos emisiones dañinas para el medio ambiente, y de una manera más segura, reduciendo la cantidad de accidentes de tránsito.
+Este conocimiento no sólo será útil en el futuro, sino que en el presente nos ayudaría a tener vehículos que sean conducidos de una manera eficiente y más segura, reduciendo  la cantidad de emisiones dañinas para el medio ambiente y la cantidad de accidentes de tránsito.
 
-Por otro lado, actualmente no se cuenta con una forma de monitorizar el comportamiento de los conductores que trabajan en el transporte pùblico. Este sistema permitiría además el desarrollo de un sistema de calificación y un historial para el conductor, para poder incentivar o regular el comportamiento de este y de esta manera mejorar el servicio de transporte.
+Por otro lado, actualmente no se cuenta con una forma de monitorizar el comportamiento de los conductores que trabajan en el transporte público. Una persona es capaz de darse cuenta fácilmente cuando el conductor realiza una maniobra temeraria y pone en riesgo la seguridad. Sin embargo, no existen muchos sistemas que puedan reconocer de forma automática o semiautomática este comportamiento.
 
+El  mismo hecho de monitorizar el estilo de manejo de un conductor de una manera objetiva y a lo largo de todo su recorrido hace que el conductor cambie su comportamiento al volante y tenga más cuidado a la hora de conducir. Sin mencionar las ventajas que podría tener el poder calificar a un conductor por la manera en la que realiza su trabajo
 
-\section{Motivación Específica y Propuesta de Solución}
+Debido a todas las razones antes mencionadas, el desarrollo de un sistema de reconocimiento de estilos de conducción en Lima es importante.
 
-Se propone entonces el diseño de un módulo de reconocimiento de estilo de conducción de bajo costo que pueda adaptarse a cualquier vehículo para su uso en el sistema de transporte público de Lima.
+\mynote{Objetivo general}
 
-Este módulo consistirá de el uso de algoritmos de reconocimiento de patrones y un sistema de feedback que le advertirá al conductor cuando este realice una maniobra agresiva que consuma energía que podría haberse ahorrado y que comprometa la seguridad vial. Además el estilo de manejo de cada conductor será monitorizado enviando toda la información a un servidor para un análisis estadístico posterior.
+\section{Objetivo general}
+Se propone entonces el diseño de un módulo de reconocimiento de estilo de conducción que pueda adaptarse a cualquier vehículo y que entregue un feedback de acuerdo al estilo actual del conductor para su uso en el sistema de transporte público en Lima.
 
-Este sistema no sólo permitirá la adopción de un estilo de conducciñon más eficiente y seguro por parte de los conductores del sistema de transporte público. Sino que además brindará datos e información con la que no se cuenta actualmente y que podría ser utilizada para generar otros servicios, como el el seguimiento de los buses en tiempo real por parte de los usuarios.
+Este módulo utilizará algoritmos de reconocimiento de patrones y retornará una señal de feedback con el objetivo de advertir al conductor cuando este realice una maniobra agresiva que consuma energía innecesaria que comprometa la seguridad vial. Además, el estilo de manejo de cada conductor será monitorizado enviando toda la información a un servidor para un análisis estadístico posterior.
+
+Este sistema no sólo permitirá la adopción de un estilo de conducción más eficiente y seguro por parte de los conductores del sistema de transporte público; sino que además, brindará datos e información con la que no se cuenta actualmente y que podría ser utilizada para generar otros servicios tal como el seguimiento de los buses en tiempo real por parte de los usuarios.
+
+\section{Objetivos específicos}
+De acuerdo a lo expuesto anteriormente se establecen entonces los siguientes objetivos:
+
+\begin{itemize}
+    \itemsep0em
+    \item Definir el concepto de estilo de conducción.
+    \item Definir que parámetros de los vehículos se medirán.
+    \item Se escogerán los sensores que medirán estos parámetros.
+    \item Diseñar un algoritmo o un conjunto de estos para reconocer el estilo de conducción de un conductor de acuerdo a la definición propuesta en esta tesis.
+    \item Diseñar el dispositivo para que no sea costoso y sea fácil de instalar en cualquier vehículo.
+    \item Diseñar el sistema de feedback.
+\end{itemize}
+
+Se propone entonces el diseño de un módulo de reconocimiento de estilo de conducción de bajo costo que pueda adaptarse a cualquier vehículo para su uso en el sistema de transporte público en Lima.
+
+Este módulo utilizará algoritmos de reconocimiento de patrones y retornará una señal de feedback con el objetivo de advertir al conductor cuando este realice una maniobra agresiva que consuma energía innecesaria que comprometa la seguridad vial. Además, el estilo de manejo de cada conductor será monitorizado enviando toda la información a un servidor para un análisis estadístico posterior.
+
+Este sistema no sólo permitirá la adopción de un estilo de conducción más eficiente y seguro por parte de los conductores del sistema de transporte público; sino que además, brindará datos e información con la que no se cuenta actualmente y que podría ser utilizada para generar otros servicios tal como el seguimiento de los buses en tiempo real por parte de los usuarios.

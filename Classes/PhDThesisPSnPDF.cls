@@ -960,9 +960,9 @@ wish to left align your text}
 	\vspace{.05\PHD@titlepagespacing}
 \fi
 
-% Title
-{\usebox{\PHD@Title}} % subtitle is defined
-
+% Department and University
+{\usebox{\PHD@dept}}
+\vspace{.002\PHD@titlepagespacing}
 
 % Crest
 
@@ -978,38 +978,38 @@ wish to left align your text}
 
 % Curso
 {\usebox{\PHD@curso}}
-\vspace*{0.10em}
+\vspace*{1em}
 
-% Department and University
-{\usebox{\PHD@dept}}
-\vspace{.2\PHD@titlepagespacing}
+% Title
+{\usebox{\PHD@Title}} % subtitle is defined
+\vspace*{2em}
 
 % Author
 {\usebox{\PHD@author}}
-\vspace*{0.25em}
+\vspace*{-0.2em}
 
 % Supervisor
 \ifPHD@supervisor%
 {\usebox{\PHD@supervisor}}
-\vspace*{0.25em}
+\vspace*{-0.2em}
 \fi
 
 % Advisor
 \ifPHD@advisor%
 {\usebox{\PHD@advisor}}
-\vspace*{0.25em}
+\vspace*{-0.2em}
 \fi
 
 % horario
 \ifPHD@horario%
 {\usebox{\PHD@horario}}
-\vspace*{0.25em}
+\vspace*{-0.2em}
 \fi
 
 % Codigo
 \ifPHD@codigo%
 {\usebox{\PHD@codigo}}
-\vspace*{0.05em}
+\vspace*{-0.7em}
 \fi
 
 % Submission Text
@@ -1194,7 +1194,7 @@ wish to left align your text}
 \newsavebox{\PHD@Title}
 \begin{lrbox}{\PHD@Title}
   \begin{minipage}[c]{0.98\textwidth}
-    \centering \LARGE \bfseries{\@title}
+    \centering \Large \bfseries \scshape{\@title}
   \end{minipage}
 \end{lrbox}
 
@@ -1217,7 +1217,7 @@ wish to left align your text}
 \newsavebox{\PHD@curso}
 \begin{lrbox}{\PHD@curso}
   \begin{minipage}[c]{\textwidth}
-    \centering \Large {\@curso}
+    \centering \scshape \large {\@curso}
   \end{minipage}
 \end{lrbox}
 
@@ -1225,10 +1225,10 @@ wish to left align your text}
 % Department Box
 \newsavebox{\PHD@dept}
 \begin{lrbox}{\PHD@dept}
-  \begin{minipage}[c]{\textwidth}
-  \setlength{\parskip}{-0.15em}
-    \centering {\Large \@dept \par}
-	       {\Large \bfseries \@university \par}
+  \begin{minipage}[c]{1\textwidth}
+  \setlength{\parskip}{1em}
+    \centering {\LARGE \bfseries \@university \par}
+	       {\Large \scshape \@dept \par}
   \end{minipage}
 \end{lrbox}
 
