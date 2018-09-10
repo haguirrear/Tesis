@@ -221,12 +221,38 @@ GPS e IMU & \cite{6957822} \\ \bottomrule
 \label{diag:2.3}
 \end{table}
 
+\subsection{Acelerómetros de bajo costo}
+Los acelerómetros nos permiten medir la aceleración longitudinal y lateral, que son las que nos permiten medir eventos de conducción como el frenado y la aceleración o los giros. Con un acelerómetro de 2 ejes como el usado en {6294318} es suficiente para medir estas dos aceleraciones.
+
+Estos acelerómetros pueden costar desde \textdollar 2, como el MMA6910KQ \cite{acelerom} que consta de 3 ejes y puede tener un rango de $\pm 3.5$ o $\pm \SI{5.0}{g} $.
+
+\subsection{Smartphone}
+Los smartphones tienen cada vez más y más sensores que pueden ser usados para aplicaciones como las de la presente tesis. En \cite{6083078} se usó los sensores integrados en un Iphone 4 para realizar la tarea de reconociento de estilo de conducción. Estos sensores fueron la cámara trasera (solo para registro), el acelerómetro de 3 ejes, el giroscopio de 3 ejes y el GPS. \newpage
+
 \subsection{Inertial Measurement Unit}
-Esta clase de sensores se puede encontrar bajo un rango de precios muy amplio. Existen unidades por debajo de los \textdollar 10 como el MPU-6050 (Fig.~\ref{fig:2.7}) que cuenta con un giroscopio de 3 ejes, un acelerómetro de 3 ejes y funciona a un voltaje de \SI[mode=text]{2.3}{V} a \SI[mode=text]{3.4}{V} \cite{invensense}
+Esta clase de sensores se puede encontrar bajo un rango de precios muy amplio. Existen unidades por debajo de los \textdollar 10 como el MPU-6050 (Fig.~\ref{fig:2.7}) que cuenta con un giroscopio de 3 ejes y un acelerómetro de 3 ejes; y funciona a un voltaje de \SI[mode=text]{2.3}{V} a \SI[mode=text]{3.4}{V} \cite{invensense}
 
 \begin{figure}[htpb!]
 \centering
 \includegraphics[width=0.3\textwidth]{Fig7}
-\caption[MPU-5050 de Invensense]{MPU-5050 de Invensense \cite{invensense}.}
+\caption[MPU-5050 de Invensense]{MPU-6050 de Invensense \cite{invensense}.}
 \label{fig:2.7}
 \end{figure}
+
+\subsection{GPS}
+El GPS es muy usado también al reconocer estios de conducción ya que aporta información muy relevante al sistema, por ejemplo se puede usar la información del GPS para detectar el tipo de camino en el que se encuentra el auto en ese momento. Además se puede usar también para obtener la velocidad del auto, aunque es más usado en conjunto con un IMU para que al combinar la información de ambos sensores se usen algoritmos de {\it Sensor Fusion} para mejorar el resultado de las mediciones.
+
+\section{Feedback}
+Una de los elementos más importantes de los sistemas de reconocimiento de estilos de conducción antes mencionados son las señales de feedback que se le dan al conductor. Dependiendo de cuál sea el enfoque del reconocimiento de estilo de conducción (enfoque en ahorro de combustible o enfoque en agresividad de maniobras).
+
+Hay 3 maneras principales de generar este feedback. De manera visual, háptica, audible o una combinación de estos. Cada una presenta ventajas y desventajas.
+
+Para generar feedback de manera visual se pueden incluir Human Machine Interfaces (HMI), que básicamente son pantallas que permiten al conductor saber que estilo de conducción se encuentran ejerciendo en ese momento. Esto se podría lograr usando un un smartphone o una tablet también. La desventaja de usar feedback visual es el conductor ya procesa mucha información visual al llevar a cabo la tarea de conducir, por lo que agregar más información requiere que el conductor preste atención al dispositivo  y reduzca su atención en el camino. Esto podría presenta problemas de seguridad como se señala en \cite{benedetto2012}
+
+En \cite{8207769} se usó una tablet como método de feedback para entregar {\it Tips de Conducción} al usuario. El sistema funcionaba de las siguiente manera: Reconocia el estilo de conducción actual del conductor y se usaba {\it Learning Path Planning} para poder llegar desde el estilo de conducción detectado a uno óptimo en el que se consuma menos combustible. Obtenido esto, se procedían a mostrar los tips de conducción al conductor usando la tablet. En este sistema se lograba incrementar la economía del combustible en un 6.25\%.
+
+Para generar señales auditivas se puede utilizar un pequeño parlante que haga sonar una alarma cuando se registra un comportamiento no deseado del conductor (Estilo de conducción con alto consumo de combustible o muy agresivo). Este método
+
+Por último, las señales hápticas han sido investigadas debido a que es el único canal de información por el cual los conductores no reciben mucha información de la tarea de conducir. Lo que quiere decir, que generaría menos distracciones que los otros tipos de feedback. En \cite{Hapticreview} se expone diferentes maneras de entregar esta señal (En el timón, el panel frontal del auto, el asiento , etc.).
+
+

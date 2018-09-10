@@ -31,7 +31,7 @@ Por último, se necesita también de una adecuada infraestructura que permita qu
 \textbf{Categoría} & \multicolumn{1}{c|}{\textbf{Descripción}}  \\ \hline
 Función Principal & Reconocer el estilo de manejo de un conductor del sistema de transporte público de Lima y otorgarle un feedback adecuado. \\ \hline
 Seguridad & El sistema no deberá influir en elementos que puedan generar un accidente de tránsito, como la visibilidad a través del parabrisas o a través de los espejos. \\ \hline
-Señales & El sistema contará con una conexión a Internet permanente, con la cual guardará la información recolectada. \\ \hline
+Señales & El sistema contará con una conexión a Internet permanente, con la cual guardará la información recolectada. Esta información consiste en los sensores usados (IMU, GPS, etc.) \\ \hline
 Energía & El sistema funcionará a través de una batería de larga duración, que tenga la posibilidad de recargarse usando como fuente de energía al vehículo. \\ \hline
 Geometría & Las medidas del sistema no deberán superar los \SI{30}{cm} de altura o de largo y ancho \\ \hline
 Peso & El peso del módulo debe ser menor que \SI{1}{Kg}.\\ \hline
@@ -47,3 +47,8 @@ Tiempo de entrega & El diseño deberá ser finalizado junto a los documentos cor
 \label{diag:3.1}
 \end{table}
 \egroup
+
+\section{Estructura de funciones}
+Usando el modelo de {\it Black Box} se presentarán los distintos dominios del sistema. De esta manera, se podrán observar con claridad las entradas y salidas de cada uno de ellos.
+
+\subsection{Dominio Mecánico}
