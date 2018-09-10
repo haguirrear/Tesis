@@ -6,7 +6,7 @@
 
 % **************************** Define Graphics Path **************************
 \ifpdf
-    \graphicspath{{Chapter3/Figs/Raster/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
+    \graphicspath{{Chapter3/Figuras/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
 \else
     \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
 \fi
@@ -48,7 +48,36 @@ Tiempo de entrega & El diseño deberá ser finalizado junto a los documentos cor
 \end{table}
 \egroup
 
-\section{Estructura de funciones}
-Usando el modelo de {\it Black Box} se presentarán los distintos dominios del sistema. De esta manera, se podrán observar con claridad las entradas y salidas de cada uno de ellos.
+\newpage
 
-\subsection{Dominio Mecánico}
+\section{Estructura de funciones}
+Se detallará a continuación los módulos principales que tendrá el sistema de reconocimiento de estilos de conducción con su funcionamiento y las posibles soluciones para cada uno de ellos.
+
+\subsection{Modelo Black Box}
+En la Fig~\ref{fig:3.1} se puede observar el modelo de Black Box o Caja Negra del sistema.
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=\textwidth]{Fig1}
+\caption{Modelo de Black Box del sistema}
+\label{fig:3.1}
+\end{figure}
+
+
+El sistema estará conectado al auto, de donde obtendrá la energía necesaria para funcionar. Debido a que el enfoque del sistema es ahorrar energía. Este no debe consumir mucha.
+
+Además de recibir la energía, este sistema recibirá las señales de los sensores que contendrán toda la información necesaria para caracterizar el estilo de conducción del usuario. Obteniendo en la salida el estilo de conducción. Este será almacenado y será representado como una señal de feedback al usuario. Además el sistema deberá indicar al usuario que esta en funcionamiento.
+
+\subsection{Dominio Electrónico}
+
+Este dominio se encarga principalmente de recolectar la información necesaria para lograr caracterizar el estilo de conducción de un conductor y también de brindar la energía a todos los componentes del sistema.
+
+Se usará la energía que se encuentra disponible a través del auto en donde se encuentra instalado el sistema. Pero se tendrá en cuenta que el consumo debe ser muy pequeño para no causar un gran impacto en el consumo de combustible del auto.
+
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=\textwidth]{Fig2}
+\caption{Diagrama de Funciones del dominio electrónico}
+\label{fig:3.2}
+\end{figure}
