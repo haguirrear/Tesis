@@ -18,66 +18,70 @@ También se tiene como requerimiento un grado de precisión alto en el reconocim
 
 Por último, se necesita también de una adecuada infraestructura que permita que el sistema funcione en linea, entregando feedback al conductor, aún si se presentan condiciones como la falta temporal de conexión a Internet. Este requerimiento será importante al considerar donde realizar el procesamiento de los datos (dentro de un sistema embebido en cada vehículo o usando un servidor).
 
-\bgroup
-\def\arraystretch{1.5}%  1 is the default, change whatever you need
-\begin{table}[hpbt!]
-\centering
-\caption{Lista de exigencias}
-\resizebox{\textwidth}{!}{%
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline
-\multicolumn{2}{|c|}{\textbf{Lista de exigencias}} \\ \hline
-\textbf{Tema:} & Sistema de Reconocimiento de Estilo de Conducción para Optimización de consumo de Combustible en Vehículos del Sistema de Transporte Público de Lima \\ \hline
-\textbf{Categoría} & \multicolumn{1}{c|}{\textbf{Descripción}}  \\ \hline
-Función Principal & Reconocer el estilo de manejo de un conductor del sistema de transporte público de Lima y otorgarle un feedback adecuado. \\ \hline
-Seguridad & El sistema no deberá influir en elementos que puedan generar un accidente de tránsito, como la visibilidad a través del parabrisas o a través de los espejos. \\ \hline
-Señales & El sistema contará con una conexión a Internet permanente, con la cual guardará la información recolectada. Esta información consiste en los sensores usados (IMU, GPS, etc.) \\ \hline
-Energía & El sistema funcionará a través de una batería de larga duración, que tenga la posibilidad de recargarse usando como fuente de energía al vehículo. \\ \hline
-Geometría & Las medidas del sistema no deberán superar los \SI{30}{cm} de altura o de largo y ancho \\ \hline
-Peso & El peso del módulo debe ser menor que \SI{1}{Kg}.\\ \hline
-Electrónica & Se empleará sensores que puedan detectar información relevante para el reconocimiento de estilo de manejo y un sistema de feedback para informal al conductor. \\ \hline
-Software & Se desarrollará una plataforma en la que se permita obtener los datos medidos por el sistema de una forma sencilla. \\ \hline
-Mantenimiento & Se deberá realizar un mantenimiento preventivo del sistema cada 6 meses, para asegurar su funcionamiento. \\ \hline
-Ergonomía & El sistema de sensores deberá estar en una posición que no afecte a la actividad de conducción y el sistema de feedback debe estar en una posición en la que el conductor pueda recibir el feedback sin comprometer la visibilidad de la tarea de conducción. \\ \hline
-Transporte & El sistema será sencillo de instalar y desinstalar, para su uso en un número grande de vehículos \\ \hline
-Uso & El sistema deberá usarse durante toda la tarea de conducción a temperatura ambiente y protegido de condiciones climáticas adversas. \\ \hline
-Tiempo de entrega & El diseño deberá ser finalizado junto a los documentos correspondientes antes de la semana 15 del presente ciclo académico. \\ \hline
-\end{tabularx}%
-}
-\label{diag:3.1}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[htbp!]
+  \caption{Lista de Requerimientos página 1}
+  \label{diag:2.1}
+  \includegraphics[width=1.05\linewidth]{Tab1.pdf}
 \end{table}
-\egroup
 
 \newpage
 
-\section{Estructura de funciones}
-Se detallará a continuación los módulos principales que tendrá el sistema de reconocimiento de estilos de conducción con su funcionamiento y las posibles soluciones para cada uno de ellos.
+\begin{table}[htbp!]
+  \caption{Lista de Requerimientos página 2}
+  \label{diag:2.2}
+  \includegraphics[width=1.05\linewidth]{Tab2.pdf}
+\end{table}
 
-\subsection{Modelo Black Box}
-En la Fig~\ref{fig:3.1} se puede observar el modelo de Black Box o Caja Negra del sistema.
+\section{Modelo Black Box}
+En la Fig~\ref{fig:3.1} se puede observar el modelo de Black Box o Caja Negra del sistema. En este modelo se pueden apreciar con mayor claridad las entradas y salidas del sistema
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=\textwidth]{Fig1}
+\includegraphics[width=\textwidth]{Fig1.pdf}
 \caption{Modelo de Black Box del sistema}
 \label{fig:3.1}
 \end{figure}
 
 
-El sistema estará conectado al auto, de donde obtendrá la energía necesaria para funcionar. Debido a que el enfoque del sistema es ahorrar energía. Este no debe consumir mucha.
+El sistema estará conectado al auto, de donde obtendrá la energía necesaria para funcionar. Debido a que el enfoque del sistema es ahorrar energía. Su consumo debe ser reducido.
 
-Además de recibir la energía, este sistema recibirá las señales de los sensores que contendrán toda la información necesaria para caracterizar el estilo de conducción del usuario. Obteniendo en la salida el estilo de conducción. Este será almacenado y será representado como una señal de feedback al usuario. Además el sistema deberá indicar al usuario que esta en funcionamiento.
+Además de recibir la energía, este sistema procesará el movimiento del auto usando sensores obteniendo así toda la información necesaria para caracterizar el estilo de conducción del usuario. El estilo de conducción será almacenado y será representado como una señal de feedback al usuario. Además el sistema deberá indicar al usuario que se en funcionamiento.
 
-\subsection{Dominio Electrónico}
+\section{Estructura de Funciones}
 
-Este dominio se encarga principalmente de recolectar la información necesaria para lograr caracterizar el estilo de conducción de un conductor y también de brindar la energía a todos los componentes del sistema.
-
-Se usará la energía que se encuentra disponible a través del auto en donde se encuentra instalado el sistema. Pero se tendrá en cuenta que el consumo debe ser muy pequeño para no causar un gran impacto en el consumo de combustible del auto.
-
-
-\begin{figure}[htbp!]
+\begin{sidewaysfigure}[htbp!]
 \centering
-\includegraphics[width=\textwidth]{Fig2}
-\caption{Diagrama de Funciones del dominio electrónico}
+\includegraphics[width=\textwidth]{Tab3.pdf}
+\caption{Estructura de Funciones}
 \label{fig:3.2}
-\end{figure}
+\end{sidewaysfigure}
+
+La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 5 módulos: Energía, Mecánica, Sensores, Comunicación y Reconocimiento del estilo de conducción.
+
+Se describirá a continuación cada uno de estos módulos para así obtener una visión general del funcionamiento total del sistema.
+
+\subsection{Módulo de energía}
+En este módulo se maneja la energía eléctrica que alimenta al sistema. Esta es obtenida directamente del automóvil (Conexión de \SI{12}{V}) y transformada según los requerimientos de los sensores y módulos que van conectados al microcontrolador (MCU). Estos requerimientos normalmente pueden ser de \SI{3.3}{V} o \SI{5}{V} y de un amperaje menor a \SI{1}{A}.
+
+Este módulo también energiza al dispositivo de feedback al usuario, que podría ser una pantalla y/o unos parlantes. Estos se encuentran en un rango de potencia similar a la mencionada anteriormente.
+
+\subsection{Módulo mecánico}
+En este módulo se encuentra la estructura que se encargará de sostener y mantener seguros a todos los componentes electrónicos del sistema. Debido a que el auto en el que el sistema estará instalado se desplazará y estará sujeto a aceleraciones, es necesario que esta estructura mantenga inmóvil al sistema con respecto al vehículo.
+
+\subsection{Módulo de sensores}
+
+Este módulo se encarga de transformar el movimiento del vehículo en información útil para poder caracterizar el estilo de conducción del usuario. Esta compuesto por sensores inerciales, un módulo GPS y los sensores de los {\it Electronic Control Units} (ECU) del vehículo, si se encuentran disponibles.
+
+Todos estos elementos se encontrarán enviando información constantemente al MCU para que este la maneje.
+
+\subsection{Módulo de comunicación}
+Este módulo se encargará de encender una señal que indique que el sistema se encuentra en funcionamiento y también de enviar los datos que fueron entregados por el módulo de sensores hacia un servidor. Esto se logrará usando un módulo 3G y empleando un protocolo que permita enviar información a una velocidad adecuada y sin requerir mucho poder de procesamiento, como MQTT o CoAP.
+
+Además este módulo recibirá a través del servidor el resultado del procesamiento de los datos que envió. Este resultado es el estilo de conducción actual del usuario. El microcontrolador mostrará esta información al usuario usando una interfaz audiovisual, como una tablet o pantalla, a forma de feedback de su actividad de conducción.
+
+\subsection{Módulo de reconocimiento de estilo de conducción}
+En este módulo se realizará el procesamiento de la data que fue enviada por el MCU. Para realizar esto se realizará un preprocesamiento de la data para luego procesarla usando algoritmos de machine learning.
+
+Cuando la data haya sido procesada, se tendrá el estilo de conducción resultante que será enviado de vuelta al MCU por el servidor. Sin embargo, la data usada para obtener este resultado se conservará. Esta data se almacenará en el servidor para poder hacer análisis offline o implementar otros servicios que puedan hacer uso de la información disponible, como un seguimiento en tiempo real de los buses, un monitoreo de los conductores, etc.
