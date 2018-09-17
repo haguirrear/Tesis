@@ -18,21 +18,20 @@ También se tiene como requerimiento un grado de precisión alto en el reconocim
 
 Por último, se necesita también de una adecuada infraestructura que permita que el sistema funcione en linea, entregando feedback al conductor, aún si se presentan condiciones como la falta temporal de conexión a Internet. Este requerimiento será importante al considerar donde realizar el procesamiento de los datos (dentro de un sistema embebido en cada vehículo o usando un servidor).
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+
 \begin{table}[htbp!]
-  \caption{Lista de Requerimientos página 1}
-  \label{diag:2.1}
+  \caption{Lista de Requerimientos página 1.}
+  \label{diag:3.1}
   \includegraphics[width=1.05\linewidth]{Tab1.pdf}
 \end{table}
 
-\newpage
-
 \begin{table}[htbp!]
-  \caption{Lista de Requerimientos página 2}
-  \label{diag:2.2}
+  \caption{Lista de Requerimientos página 2.}
+  \label{diag:3.2}
   \includegraphics[width=1.05\linewidth]{Tab2.pdf}
 \end{table}
+
+\newpage
 
 \section{Modelo Black Box}
 En la Fig~\ref{fig:3.1} se puede observar el modelo de Black Box o Caja Negra del sistema. En este modelo se pueden apreciar con mayor claridad las entradas y salidas del sistema
@@ -40,7 +39,7 @@ En la Fig~\ref{fig:3.1} se puede observar el modelo de Black Box o Caja Negra de
 \begin{figure}[htbp!]
 \centering
 \includegraphics[width=\textwidth]{Fig1.pdf}
-\caption{Modelo de Black Box del sistema}
+\caption{Modelo de Black Box del sistema.}
 \label{fig:3.1}
 \end{figure}
 
@@ -54,34 +53,66 @@ Además de recibir la energía, este sistema procesará el movimiento del auto u
 \begin{sidewaysfigure}[htbp!]
 \centering
 \includegraphics[width=\textwidth]{Tab3.pdf}
-\caption{Estructura de Funciones}
+\caption{Estructura de Funciones.}
 \label{fig:3.2}
 \end{sidewaysfigure}
 
-La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 5 módulos: Energía, Mecánica, Sensores, Comunicación y Reconocimiento del estilo de conducción.
+La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 6 módulos: Mecánica, Energía, Sensores, Comunicación, Reconocimiento del estilo de conducción e Interfaz.
 
 Se describirá a continuación cada uno de estos módulos para así obtener una visión general del funcionamiento total del sistema.
 
-\subsection{Módulo de energía}
-En este módulo se maneja la energía eléctrica que alimenta al sistema. Esta es obtenida directamente del automóvil (Conexión de \SI{12}{V}) y transformada según los requerimientos de los sensores y módulos que van conectados al microcontrolador (MCU). Estos requerimientos normalmente pueden ser de \SI{3.3}{V} o \SI{5}{V} y de un amperaje menor a \SI{1}{A}.
-
-Este módulo también energiza al dispositivo de feedback al usuario, que podría ser una pantalla y/o unos parlantes. Estos se encuentran en un rango de potencia similar a la mencionada anteriormente.
-
 \subsection{Módulo mecánico}
-En este módulo se encuentra la estructura que se encargará de sostener y mantener seguros a todos los componentes electrónicos del sistema. Debido a que el auto en el que el sistema estará instalado se desplazará y estará sujeto a aceleraciones, es necesario que esta estructura mantenga inmóvil al sistema con respecto al vehículo.
+En este módulo Fig~\ref{fig:3.3} se encuentra la  función de proteger y albergar todos los componentes del sistema. Se debe tener en cuenta que la velocidad relativa entre el vehículo y el sistema debe ser nula para que las medidas de los sensores sean precisas.
+
+Además es importante también proteger al sistema de elementos como el polvo y la humedad. Por lo que se ejercerá la función de proteger al sistema.
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.8\textwidth]{mec.pdf}
+\caption{Módulo mecánico de la estructura de funciones.}
+\label{fig:3.3}
+\end{figure}
+
+\subsection{Módulo de energía}
+Este módulo Fig~\ref{fig:3.4} cumplirá la función de obtener la energía eléctrica necesaria para el funcionamiento del sistema y regular el voltaje, entregándole a cada módulo esta energía según sus requerimientos específicos. Los módulos que recibirán la energía serán los de Comunicación, Sensores e Interfaz.
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.6\textwidth]{elec.pdf}
+\caption{Módulo eléctrico de la estructura de funciones.}
+\label{fig:3.4}
+\end{figure}
+
 
 \subsection{Módulo de sensores}
+Este módulo Fig~\ref{fig:3.5} realizará la función de recibir la información del movimiento del vehículo y transmitir esa información al módulo de comunicaciones que adquirirá todos los datos. Estos sensores serán tanto de movimiento, como de posición, pero además de estos se usarán los sensores internos del vehículo si estos se encuentran disponibles.
 
-Este módulo se encarga de transformar el movimiento del vehículo en información útil para poder caracterizar el estilo de conducción del usuario. Esta compuesto por sensores inerciales, un módulo GPS y los sensores de los {\it Electronic Control Units} (ECU) del vehículo, si se encuentran disponibles.
-
-Todos estos elementos se encontrarán enviando información constantemente al MCU para que este la maneje.
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.5\textwidth]{sens.pdf}
+\caption{Módulo de sensores de la estructura de funciones.}
+\label{fig:3.5}
+\end{figure}
 
 \subsection{Módulo de comunicación}
-Este módulo se encargará de encender una señal que indique que el sistema se encuentra en funcionamiento y también de enviar los datos que fueron entregados por el módulo de sensores hacia un servidor. Esto se logrará usando un módulo 3G y empleando un protocolo que permita enviar información a una velocidad adecuada y sin requerir mucho poder de procesamiento, como MQTT o CoAP.
+En este módulo Fig~\ref{fig:3.6} se ejecutarán las funciones de adquirir los datos que el módulo de sensores entrega. Luego de adquirirlos, se necesita enviar estos datos para su procesamiento y recibirlos una vez estén procesados. Los datos procesados representarán al estilo de manejo del conductor, por lo que esta información será entregada al módulo de interfaz para que sean mostrados al usuario.
 
-Además este módulo recibirá a través del servidor el resultado del procesamiento de los datos que envió. Este resultado es el estilo de conducción actual del usuario. El microcontrolador mostrará esta información al usuario usando una interfaz audiovisual, como una tablet o pantalla, a forma de feedback de su actividad de conducción.
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.5\textwidth]{com.pdf}
+\caption{Módulo de comunicación de la estructura de funciones.}
+\label{fig:3.6}
+\end{figure}
+
 
 \subsection{Módulo de reconocimiento de estilo de conducción}
 En este módulo se realizará el procesamiento de la data que fue enviada por el MCU. Para realizar esto se realizará un preprocesamiento de la data para luego procesarla usando algoritmos de machine learning.
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.6\textwidth]{rec.pdf}
+\caption{Módulo de reconocimiento de estilo de conducción de la estructura de funciones.}
+\label{fig:3.7}
+\end{figure}
 
 Cuando la data haya sido procesada, se tendrá el estilo de conducción resultante que será enviado de vuelta al MCU por el servidor. Sin embargo, la data usada para obtener este resultado se conservará. Esta data se almacenará en el servidor para poder hacer análisis offline o implementar otros servicios que puedan hacer uso de la información disponible, como un seguimiento en tiempo real de los buses, un monitoreo de los conductores, etc.
