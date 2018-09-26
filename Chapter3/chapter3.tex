@@ -57,24 +57,24 @@ Además de recibir la energía, este sistema procesará el movimiento del auto u
 \label{fig:3.2}
 \end{sidewaysfigure}
 
-La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 6 módulos: Mecánica, Energía, Sensores, Comunicación, Reconocimiento del estilo de conducción e Interfaz.
+La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 6 Dominios: Mecánica, Energía, Sensores, Comunicación, Reconocimiento del estilo de conducción e Interfaz.
 
-Se describirá a continuación cada uno de estos módulos para así obtener una visión general del funcionamiento total del sistema.
+Se describirá a continuación cada uno de estos dominios para así obtener una visión general del funcionamiento total del sistema.
 
-\subsection{Módulo mecánico}
-En este módulo Fig~\ref{fig:3.3} se encuentra la  función de proteger y albergar todos los componentes del sistema. Se debe tener en cuenta que la velocidad relativa entre el vehículo y el sistema debe ser nula para que las medidas de los sensores sean precisas.
+\subsection{Dominio mecánico}
+En este dominio Fig~\ref{fig:3.3} se encuentra la  función de proteger y albergar todos los componentes del sistema. Se debe tener en cuenta que la velocidad relativa entre el vehículo y el sistema debe ser nula para que las medidas de los sensores sean precisas.
 
 Además es importante también proteger al sistema de elementos como el polvo y la humedad. Por lo que se ejercerá la función de proteger al sistema.
 
 \begin{figure}[htbp!]
 \centering
 \includegraphics[width=0.8\textwidth]{mec.pdf}
-\caption{Módulo mecánico de la estructura de funciones.}
+\caption{Dominio mecánico de la estructura de funciones.}
 \label{fig:3.3}
 \end{figure}
 
-\subsection{Módulo de energía}
-Este módulo Fig~\ref{fig:3.4} cumplirá la función de obtener la energía eléctrica necesaria para el funcionamiento del sistema y regular el voltaje, entregándole a cada módulo esta energía según sus requerimientos específicos. Los módulos que recibirán la energía serán los de Comunicación, Sensores e Interfaz.
+\subsection{Dominio de energía}
+Este dominio Fig~\ref{fig:3.4} cumplirá la función de obtener la energía eléctrica necesaria para el funcionamiento del sistema y regular el voltaje, entregándole a cada módulo esta energía según sus requerimientos específicos. Los módulos que recibirán la energía serán los de Comunicación, Sensores e Interfaz.
 
 \begin{figure}[htbp!]
 \centering
@@ -84,7 +84,7 @@ Este módulo Fig~\ref{fig:3.4} cumplirá la función de obtener la energía elé
 \end{figure}
 
 
-\subsection{Módulo de sensores}
+\subsection{Dominio de sensores}
 Este módulo Fig~\ref{fig:3.5} realizará la función de recibir la información del movimiento del vehículo y transmitir esa información al módulo de comunicaciones que adquirirá todos los datos. Estos sensores serán tanto de movimiento, como de posición, pero además de estos se usarán los sensores internos del vehículo si estos se encuentran disponibles.
 
 \begin{figure}[htbp!]
@@ -95,7 +95,7 @@ Este módulo Fig~\ref{fig:3.5} realizará la función de recibir la información
 \end{figure}
 
 \subsection{Módulo de comunicación}
-En este módulo Fig~\ref{fig:3.6} se ejecutarán las funciones de adquirir los datos que el módulo de sensores entrega. Luego de adquirirlos, se necesita enviar estos datos para su procesamiento y recibirlos una vez estén procesados. Los datos procesados representarán al estilo de manejo del conductor, por lo que esta información será entregada al módulo de interfaz para que sean mostrados al usuario.
+En este módulo Fig~\ref{fig:3.6} se recopilaran los datos de
 
 \begin{figure}[htbp!]
 \centering
@@ -116,3 +116,211 @@ En este módulo se realizará el procesamiento de la data que fue enviada por el
 \end{figure}
 
 Cuando la data haya sido procesada, se tendrá el estilo de conducción resultante que será enviado de vuelta al MCU por el servidor. Sin embargo, la data usada para obtener este resultado se conservará. Esta data se almacenará en el servidor para poder hacer análisis offline o implementar otros servicios que puedan hacer uso de la información disponible, como un seguimiento en tiempo real de los buses, un monitoreo de los conductores, etc.
+
+\section{Concepto de Solución}
+En esta sección se propondrán conceptos de solución por cada dominio de la estructura de funciones mostrada anteriormente. Cada función tendrá distintas alternativas portadores de solución que al combinarse formarán una solución completa.
+
+\subsection{Dominio Mecánico}
+Se presenta a continuación la matriz morfológica del dominio mecánico en la Tabla~\ref{diag:morf_mec} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_mec}.
+\begin{table}[htbp!]
+  \caption{Matriz Morfológica del Dominio Mecánico}
+  \label{diag:morf_mec}
+  \centering
+  \includegraphics[width=0.9\linewidth]{morf_mec.pdf}
+\end{table}
+
+\newpage
+\begin{table}[htbp!]
+  \caption{Conceptos de solución mecánicos propuestos}
+  \label{diag:sol_mec}
+  \includegraphics[width=\linewidth]{sol_mec.pdf}
+\end{table}
+
+
+\subsection{Dominio Energético}
+Se presenta a continuación la matriz morfológica del dominio eléctrico en la Tabla~\ref{diag:morf_elec} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_elec}.
+
+\begin{table}[htbp!]
+  \caption{Matriz Morfológica del Dominio Energético}
+  \label{diag:morf_elec}
+  \centering
+  \includegraphics[width=0.8\linewidth]{morf_elec.pdf}
+\end{table}
+
+\newpage
+
+\begin{table}[htbp!]
+  \caption{Conceptos de solución eléctricos propuestos}
+  \label{diag:sol_elec}
+  \centering
+  \includegraphics[width=0.9\linewidth]{sol_elec.pdf}
+\end{table}
+
+\subsection{Dominios de Procesamiento y de Comunicación}
+Se presenta a continuación la matriz morfológica del dominio de comunicación en la Tabla~\ref{diag:morf_com} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_com}.
+
+\begin{table}[htbp!]
+  \caption{Matriz Morfológica de los Dominios de Procesamiento y Comunicación}
+  \label{diag:morf_com}
+  \centering
+  \includegraphics[width=0.9\linewidth]{morf_com.pdf}
+\end{table}
+
+\begin{table}[htbp!]
+  \caption{Conceptos de solución propuestos del dominio de comunicación}
+  \label{diag:sol_com}
+  \includegraphics[width=\linewidth]{sol_com.pdf}
+\end{table}
+
+\subsection{Dominio de Sensores}
+Se presenta a continuación la matriz morfológica del dominio de sensores en la Tabla~\ref{diag:morf_sens} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_sens}.
+\begin{table}[htbp!]
+  \caption{Matriz Morfológica del Dominio de Sensores}
+  \label{diag:morf_sens}
+  \centering
+  \includegraphics[width=0.9\linewidth]{morf_sens.pdf}
+\end{table}
+
+\newpage
+
+\begin{table}[htbp!]
+  \caption{Conceptos de solución propuestos del dominio de sensores}
+  \label{diag:sol_sens}
+  \includegraphics[width=\linewidth]{sol_sens.pdf}
+\end{table}
+
+
+
+
+
+
+
+\subsection{Dominio de Interfaz}
+Se presenta a continuación la matriz morfológica del dominio de interfaz en la Tabla~\ref{diag:morf_int} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_int}.
+\begin{table}[htbp!]
+  \caption{Matriz Morfológica del Dominio de Interfaz}
+  \label{diag:morf_int}
+  \centering
+  \includegraphics[width=0.9\linewidth]{morf_int.pdf}
+\end{table}
+
+\begin{table}[htbp!]
+  \caption{Conceptos de solución propuestos del dominio de interfaz}
+  \label{diag:sol_int}
+  \includegraphics[width=\linewidth]{sol_int.pdf}
+\end{table}
+
+\subsection{Dominio de Reconocimiento de estilo de conducción}
+Se presenta a continuación la matriz morfológica del dominio de reconocimiento de estilo de conducción en la Tabla~\ref{diag:morf_clas} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_clas}.
+\begin{table}[htbp!]
+  \caption{Matriz Morfológica de Reconocimiento de estilo de conducción}
+  \label{diag:morf_clas}
+  \centering
+  \includegraphics[width=\linewidth]{morf_clas.pdf}
+\end{table}
+\
+\begin{table}[htbp!]
+  \centering
+  \caption{Conceptos de solución propuestos del dominio de reconocimiento de estilo de conducción}
+  \label{diag:sol_clas}
+  \includegraphics[width=\linewidth]{sol_clas.pdf}
+\end{table}
+
+\newpage
+
+\section{Conceptos integrados de solución}
+En la siguiente tabla se puede observar un resumen de las soluciones escogidas por cada concepto de solución propuesto. Se describirán cada una de las soluciones para luego analizarlas con el fin de obtener la solución óptima.
+
+\begin{table}[htbp!]
+  \centering
+  \caption{Conceptos de solución propuestos}
+  \label{diag:sol_clas}
+  \includegraphics[width=0.9\linewidth]{mat_resumen.pdf}
+\end{table}
+\newpage
+
+\subsection{Concepto integrado de solución 1}
+El sistema se encuentra contenido en un case de plástico, que albergará todos los componentes electrónicos y que se sujetará usando un {\it phone holder} en el panel frontal del auto. Además, este sistema contará con una pantalla que estará posicionada de tal manera que el conductor pueda mirarla con facilidad. Este elemento será el que retroalimente el estilo de conducción al conductor.
+
+El dispositivo se conectará a la toma de \SI{12}{V} y a través de un regulador switching se alcanzarán los \SI{3.3}{V} que necesita el ESP32 y los \SI{5}{V} que necesitan algunos de los módulos.
+Estos módulos consisten en: Un acelerómetro de 3 ejes, un giroscopio de 3 ejes, un magnetómetro de 3 ejes (IMU), un módulo GPS y un módulo GPRS.
+
+El conector OBD2 es el único módulo que no será energizado por el regulador switching, debido a que se conectará al puerto OBD2 del auto y obtendrá energía por este mismo medio. Este conector se comunicará por medio de bluetooth al microcontrolador y de esta manera obtendrá los parámetros internos del vehículo.
+
+El microcontrolador entonces gestionará todo los datos recibidos y se encargará usar el protocolo MQTT para enviarlos. Usando el módulo GPRS que se conectará a internet, haciendo legar los datos hasta el servidor. Luego los datos se almacenarán en una base de datos y se procesarán allí.
+
+El primer paso para procesar los datos es segmentarlos en periodos en los que se realiza determinada maniobra con un solo estilo de conducción. Esto se puede lograr a través de reglas antes predefinidas usando conocimiento experto. Estas reglas son llamadas {\it Ground Truth Rules}.
+
+El segundo paso es analizar el segmento estadísticamente. Se definirán una serie de {\it features} que representen adecuadamente al segmento de datos. Estos features podrían ser: media, desviación estándar, máximo , mínimo, etc. Estos elementos serán las entradas de la {\it red neuronal} que ya ha sido entrenada previamente con una cantidad significativa de datos.
+
+La red neuronal procesará las entradas y arrojará en la salida la clase a la que pertenece este segmento, pudiendo ser estilo de conducción agresivo o estilo de conducción normal. Una vez que se tiene el estilo de conducción clasificado, se procede a enviarlo de regreso hacia el microcontrolador. Este se encargará de recibir la clasificación y de acondicionar esta información para mostrarla en la pantalla presente en el vehículo. Esta pantalla mostrará el estilo de conducción reconocido y un estimado de el consumo de combustible actual si esta disponible.
+
+El cálculo de consumo de combustible se realizará también en el servidor usando parte de los datos que provienen del módulo OBD2. Sin embargo,  esta información solo estará disponible si se tienen los parámetros adecuados desde el puerto OBD2 (Cada auto tiene disponibles diferentes parámetros).
+
+\subsection{Concepto integrado de solución 2}
+El sistema se encuentra contenido en un case de plástico, que albergará todos los componentes electrónicos y que se sujetará usando sujetador magnético en la parte superior del auto (techo). Además, este sistema contará con smartphone o tablet que este sujetada por un phone holder de tal manera que el conductor pueda mirarla con facilidad. Este elemento será el que retroalimente el estilo de conducción al conductor.
+
+El dispositivo contará con una batería de ion litio con la que se encargará de obtener energía para su funcionamiento y a través de un regulador lineal se alcanzarán los \SI{5}{V} que necesita la raspberry pi zero w y algunos de los módulos. Estos módulos consisten en: Un acelerómetro de 2 ejes, un giroscopio de 2 ejes, un magnetómetro de 2 ejes (IMU de 6 ejes), un módulo GPS y un módulo GPRS.
+
+El conector OBD2 es el único módulo que no será energizado por el regulador lineal, debido a que se conectará al puerto OBD2 del auto y obtendrá energía por este mismo medio. Este conector se comunicará por medio de WiFi a la raspberry y de esta manera obtendrá los parámetros internos del vehículo.
+
+La raspberry entonces gestionará todo los datos recibidos y se encargará de procesarlos localmente. El primer paso para procesar los datos es segmentarlos en periodos en los que se realiza determinada maniobra con un solo estilo de conducción. Esto se puede lograr a través de un algoritmo llamado {\it changepoint detection} que analiza el comportamiento de las señales y trata de dividirlas en segmentos en donde su comportamiento sea lineal o cercano a lineal.
+
+El segundo paso es analizar el segmento y clasificarlo usando el algoritmo de {\it k-NN}. Este algoritmo consiste en comparar el segmento obtenido con segmentos ejemplo que se tienen almacenados, y otorgarle la clase de acuerdo a los ejemplos que sean mas similares a este segmento.
+
+El algoritmo arrojará entonces la clase a la que pertenece este segmento, pudiendo ser estilo de conducción agresivo o estilo de conducción normal. Una vez que se tiene el estilo de conducción clasificado, se procede a enviarlo en la tablet o celular presente en el vehículo para retroalimentar la información al conductor. En el smartphone o tablet existirá una aplicación que mostrará el estilo de conducción reconocido y un estimado de el consumo de combustible actual si esta disponible.
+
+El cálculo de consumo de combustible se realizará en la raspberry pi usando parte de los datos que provienen del módulo OBD2. Sin embargo,  esta información solo estará disponible si se tienen los parámetros adecuados desde el puerto OBD2 (Cada auto tiene disponibles diferentes parámetros).
+
+\subsection{Concepto integrado de solución 3}
+En esta solución el sistema usará los sensores internos del smartphone para recopilar los datos necesarios, por lo que se requerirá un sujetador de smartphone para autos en el panel frontal del auto que este posicionado de tal manera que el conductor pueda mirarla con facilidad, ya que el smartphone también mostrará los datos obtenidos luego de la clasificación.
+
+El dispositivo se conectará a la toma de \SI{12}{V} por medio del cargador de smartphone, para asegurarse de no perder energía y apagarse.
+
+El conector OBD2 es el único módulo que no será energizado por el cargador de smartphone, debido a que se conectará al puerto OBD2 del auto y obtendrá energía por este mismo medio. Este conector se comunicará por medio de WiFi con el smartphone y de esta manera se obtendrán los parámetros internos del vehículo.
+
+El smartphone entonces usará una aplicación android, que será la que gestionará todo los datos recibidos y se encargará usar el protocolo MQTT para enviarlos a un servidor remoto. Para esto se se conectará a internet usando 3G, 4G o la línea que se encuentre dispoible. Luego los datos se almacenarán en una base de datos y se procesarán en el servidor.
+
+El primer paso para procesar los datos es segmentarlos en periodos en los que se realiza determinada maniobra con un solo estilo de conducción. Esto se puede lograr a través de un algoritmo llamado {\it changepoint detection} que analiza el comportamiento de las señales y trata de dividirlas en segmentos en donde su comportamiento sea lineal o cercano a lineal.
+
+El segundo paso es usar el Random Forest para clasificar adecuadamente este segmento en un estilo de conducción agresivo o estilo de conducción normal. Una vez que se tiene el estilo de conducción clasificado, se procede a enviarlo de regreso hacia el smartphone. la aplicación, entonces,  se encargará de recibir la clasificación y de acondicionar esta información para mostrarla en la tablet o celular presente en el vehículo. Esta aplicación mostrará también un estimado de el consumo de combustible actual si este esta disponible.
+
+El cálculo de consumo de combustible se realizará también en el servidor usando parte de los datos que provienen del módulo OBD2. Sin embargo,  esta información solo estará disponible si se tienen los parámetros adecuados desde el puerto OBD2 (Cada auto tiene disponibles diferentes parámetros).
+
+\section{Evaluación de conceptos de solución}
+Se evaluará en esta sección a las propuestas planteadas usando criterios técnicos y económicos. De esta manera se obtendrá la solución óptima.
+
+\subsection{Evaluación técnica}
+\begin{table}[htbp!]
+  \centering
+  \caption{Evaluación técnica}
+  \label{diag:eval_tec}
+  \includegraphics[width=0.8\linewidth]{eval_tec.pdf}
+\end{table}
+
+\newpage
+
+\subsection{Evaluación económica}
+\begin{table}[htbp!]
+  \centering
+  \caption{Evaluación económica}
+  \label{diag:eval_econ}
+  \includegraphics[width=0.8\linewidth]{eval_econ.pdf}
+\end{table}
+
+\subsection{Evaluación de soluciones}
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=\textwidth]{grafico.pdf}
+\caption{Diagrama de evaluación}
+\label{diag:diag_eval}
+\end{figure}
+
+\begin{table}[htbp!]
+  \centering
+  \caption{Evaluación de soluciones}
+  \label{diag:eval_sol}
+  \includegraphics[width=0.8\linewidth]{tab_puntaje.pdf}
+\end{table}
+
+De acuerdo a lo observado en los análisis técnico y económico se consideran como buenas soluciones a las soluciones 1 y 3. Sin embargo, la solución 1 resulta la más adecuada. Por este motivo se escoge usar la solución 1 para el desarrollo de esta tesis.
