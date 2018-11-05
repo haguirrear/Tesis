@@ -44,9 +44,9 @@ En la Fig~\ref{fig:3.1} se puede observar el modelo de Black Box o Caja Negra de
 \end{figure}
 
 
-El sistema estará conectado al auto, de donde obtendrá la energía necesaria para funcionar. Debido a que el enfoque del sistema es ahorrar energía. Su consumo debe ser reducido.
+El sistema estará conectado al auto, de donde obtendrá la energía necesaria para funcionar. Debido a que el enfoque del sistema es ahorrar energía, su consumo debe ser reducido.
 
-Además de recibir la energía, este sistema procesará el movimiento del auto usando sensores obteniendo así toda la información necesaria para caracterizar el estilo de conducción del usuario. El estilo de conducción será almacenado y será representado como una señal de feedback al usuario. Además el sistema deberá indicar al usuario que se en funcionamiento.
+Además de recibir la energía, este sistema procesará el movimiento del auto usando sensores obteniendo así toda la información necesaria para caracterizar el estilo de conducción del usuario. El estilo de conducción será obtenido a través del procesamiento de la información de los sensores y será representado como una señal de retroalimentación al usuario.
 
 \section{Estructura de Funciones}
 
@@ -57,65 +57,85 @@ Además de recibir la energía, este sistema procesará el movimiento del auto u
 \label{fig:3.2}
 \end{sidewaysfigure}
 
-La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 6 Dominios: Mecánica, Energía, Sensores, Comunicación, Reconocimiento del estilo de conducción e Interfaz.
+La estructura de funciones del sistema se puede apreciar en la Fig~\ref{fig:3.2}. Para el elaboramiento de esta se han considerado 7 Dominios: Mecánica, Energía, Sensores, Procesamiento, Comunicación, Reconocimiento del estilo de conducción e Interfaz.
 
 Se describirá a continuación cada uno de estos dominios para así obtener una visión general del funcionamiento total del sistema.
 
-\subsection{Dominio mecánico}
-En este dominio Fig~\ref{fig:3.3} se encuentra la  función de proteger y albergar todos los componentes del sistema. Se debe tener en cuenta que la velocidad relativa entre el vehículo y el sistema debe ser nula para que las medidas de los sensores sean precisas.
+\subsection{Dominio Mecánico}
+En este dominio (Fig~\ref{fig:3.3}) se encuentra la  función de proteger y albergar todos los componentes del sistema. Esta función hace referencia al case que encapsulará todos los elementos. Además, se debe tener en cuenta que la velocidad relativa entre el vehículo y el sistema debe ser nula para que las medidas de los sensores sean precisas. Es por eso que se tiene como otra función el sujetar los componentes.
 
-Además es importante también proteger al sistema de elementos como el polvo y la humedad. Por lo que se ejercerá la función de proteger al sistema.
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.8\textwidth]{mec.pdf}
-\caption{Dominio mecánico de la estructura de funciones.}
+\includegraphics[width=\textwidth]{mec.pdf}
+\caption{Dominio Mecánico de la estructura de funciones.}
 \label{fig:3.3}
 \end{figure}
 
-\subsection{Dominio de energía}
-Este dominio Fig~\ref{fig:3.4} cumplirá la función de obtener la energía eléctrica necesaria para el funcionamiento del sistema y regular el voltaje, entregándole a cada módulo esta energía según sus requerimientos específicos. Los módulos que recibirán la energía serán los de Comunicación, Sensores e Interfaz.
+\subsection{Dominio de Energía}
+Este dominio (Fig~\ref{fig:3.4}) cumplirá la función de obtener la energía eléctrica necesaria para el funcionamiento del sistema y regular el voltaje, entregándole a cada Dominio esta energía según sus requerimientos específicos. Los módulos que recibirán la energía serán los de Procesamiento, Sensores e Interfaz.
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.6\textwidth]{elec.pdf}
-\caption{Módulo eléctrico de la estructura de funciones.}
+\includegraphics[width=0.8\textwidth]{elec.pdf}
+\caption{Dominio Eléctrico de la estructura de funciones.}
 \label{fig:3.4}
 \end{figure}
 
 
-\subsection{Dominio de sensores}
-Este módulo Fig~\ref{fig:3.5} realizará la función de recibir la información del movimiento del vehículo y transmitir esa información al módulo de comunicaciones que adquirirá todos los datos. Estos sensores serán tanto de movimiento, como de posición, pero además de estos se usarán los sensores internos del vehículo si estos se encuentran disponibles.
+\subsection{Dominio de Sensores}
+Este dominio (Fig~\ref{fig:3.5}) realizará la función de recibir la información del movimiento del vehículo, de su posición y de obtener los parámetros internos del auto. Luego transmitirá esta información al dominio de Procesamiento que manejará todos los datos.
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.5\textwidth]{sens.pdf}
-\caption{Módulo de sensores de la estructura de funciones.}
+\includegraphics[width=0.7\textwidth]{sens.pdf}
+\caption{Dominio de Sensores de la estructura de funciones.}
 \label{fig:3.5}
 \end{figure}
 
-\subsection{Módulo de comunicación}
-En este módulo Fig~\ref{fig:3.6} se recopilaran los datos de
+
+\subsection{Dominio de Comunicación}
+En este módulo (Fig~\ref{fig:3.6}) se recopilaran los datos que se manipularon el el Dominio de Procesamiento y se entregarán al dominio de Reconocimiento de Estilo de Conducción.
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.5\textwidth]{com.pdf}
-\caption{Módulo de comunicación de la estructura de funciones.}
+\includegraphics[width=0.9\textwidth]{com.pdf}
+\caption{Dominio de Comunicación de la estructura de funciones.}
 \label{fig:3.6}
 \end{figure}
 
-
-\subsection{Módulo de reconocimiento de estilo de conducción}
-En este módulo se realizará el procesamiento de la data que fue enviada por el MCU. Para realizar esto se realizará un preprocesamiento de la data para luego procesarla usando algoritmos de machine learning.
+\subsection{Dominio de Procesamiento}
+Este dominio (Fig~\ref{fig:proces}) realizará la función de recibir la información del dominio de sensores y encapsular los datos para que el dominio de comunicación pueda enviarlos. Luego recibe los datos a través del dominio de comunicación y se encarga de generar la señal de retroalimentación y enviársela al dominio de interfaz.
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.6\textwidth]{rec.pdf}
-\caption{Módulo de reconocimiento de estilo de conducción de la estructura de funciones.}
+\includegraphics[width=0.8\textwidth]{proc.pdf}
+\caption{Dominio de Procesamiento de la estructura de funciones.}
+\label{fig:proces}
+\end{figure}
+
+\subsection{Dominio de Interfaz}
+Este dominio (Fig~\ref{fig:int}) realizará la función de recibir la señal de retroalimentación del dominio de Procesamiento y usarla para mostrarle al usuario la retroalimentación (de forma visual, auditiva o háptica).
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.8\textwidth]{int.pdf}
+\caption{Dominio de Interfaz de la estructura de funciones.}
+\label{fig:int}
+\end{figure}
+
+\subsection{Dominio de Reconocimiento de Estilo de Conducción}
+En este Dominio se realizará el reconocimiento del estilo de conducción usando . Para alcanzar esto se los datos atraviesan 3 etapas. La etapa de segmentación de datos, en la que se dividen en
+
+realizará un preprocesamiento de la data para luego procesarla usando algoritmos de machine learning.
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=0.8\textwidth]{rec.pdf}
+\caption{Dominio de Reconocimiento de Estilo de Conducción de la estructura de funciones.}
 \label{fig:3.7}
 \end{figure}
 
-Cuando la data haya sido procesada, se tendrá el estilo de conducción resultante que será enviado de vuelta al MCU por el servidor. Sin embargo, la data usada para obtener este resultado se conservará. Esta data se almacenará en el servidor para poder hacer análisis offline o implementar otros servicios que puedan hacer uso de la información disponible, como un seguimiento en tiempo real de los buses, un monitoreo de los conductores, etc.
 
 \section{Concepto de Solución}
 En esta sección se propondrán conceptos de solución por cada dominio de la estructura de funciones mostrada anteriormente. Cada función tendrá distintas alternativas portadores de solución que al combinarse formarán una solución completa.
@@ -144,16 +164,16 @@ Se presenta a continuación la matriz morfológica del dominio eléctrico en la 
   \caption{Matriz Morfológica del Dominio Energético}
   \label{diag:morf_elec}
   \centering
-  \includegraphics[width=0.8\linewidth]{morf_elec.pdf}
+  \includegraphics[width=0.9\linewidth]{morf_elec.pdf}
 \end{table}
 
-\newpage
+%\newpage
 
 \begin{table}[htbp!]
   \caption{Conceptos de solución eléctricos propuestos}
   \label{diag:sol_elec}
   \centering
-  \includegraphics[width=0.9\linewidth]{sol_elec.pdf}
+  \includegraphics[width=\linewidth]{sol_elec.pdf}
 \end{table}
 
 \subsection{Dominios de Procesamiento y de Comunicación}
@@ -163,7 +183,7 @@ Se presenta a continuación la matriz morfológica del dominio de comunicación 
   \caption{Matriz Morfológica de los Dominios de Procesamiento y Comunicación}
   \label{diag:morf_com}
   \centering
-  \includegraphics[width=0.9\linewidth]{morf_com.pdf}
+  \includegraphics[width=\linewidth]{morf_com.pdf}
 \end{table}
 
 \begin{table}[htbp!]
@@ -190,18 +210,13 @@ Se presenta a continuación la matriz morfológica del dominio de sensores en la
 \end{table}
 
 
-
-
-
-
-
 \subsection{Dominio de Interfaz}
 Se presenta a continuación la matriz morfológica del dominio de interfaz en la Tabla~\ref{diag:morf_int} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_int}.
 \begin{table}[htbp!]
   \caption{Matriz Morfológica del Dominio de Interfaz}
   \label{diag:morf_int}
   \centering
-  \includegraphics[width=0.9\linewidth]{morf_int.pdf}
+  \includegraphics[width=\linewidth]{morf_int.pdf}
 \end{table}
 
 \begin{table}[htbp!]
@@ -209,6 +224,8 @@ Se presenta a continuación la matriz morfológica del dominio de interfaz en la
   \label{diag:sol_int}
   \includegraphics[width=\linewidth]{sol_int.pdf}
 \end{table}
+
+%\newpage
 
 \subsection{Dominio de Reconocimiento de estilo de conducción}
 Se presenta a continuación la matriz morfológica del dominio de reconocimiento de estilo de conducción en la Tabla~\ref{diag:morf_clas} y la descripción de los conceptos de solución propuestos en la Tabla~\ref{diag:sol_clas}.
@@ -229,12 +246,12 @@ Se presenta a continuación la matriz morfológica del dominio de reconocimiento
 \newpage
 
 \section{Conceptos integrados de solución}
-En la siguiente tabla se puede observar un resumen de las soluciones escogidas por cada concepto de solución propuesto. Se describirán cada una de las soluciones para luego analizarlas con el fin de obtener la solución óptima.
+En la Tabla~\ref{diag:resumen} se puede observar un resumen de las soluciones escogidas por cada concepto de solución propuesto. Se describirán cada una de las soluciones para luego analizarlas con el fin de obtener la solución óptima.
 
 \begin{table}[htbp!]
   \centering
   \caption{Conceptos de solución propuestos}
-  \label{diag:sol_clas}
+  \label{diag:resumen}
   \includegraphics[width=0.9\linewidth]{mat_resumen.pdf}
 \end{table}
 \newpage
@@ -295,7 +312,7 @@ Se evaluará en esta sección a las propuestas planteadas usando criterios técn
   \centering
   \caption{Evaluación técnica}
   \label{diag:eval_tec}
-  \includegraphics[width=0.8\linewidth]{eval_tec.pdf}
+  \includegraphics[width=0.95\linewidth]{eval_tec.pdf}
 \end{table}
 
 \newpage
@@ -305,13 +322,13 @@ Se evaluará en esta sección a las propuestas planteadas usando criterios técn
   \centering
   \caption{Evaluación económica}
   \label{diag:eval_econ}
-  \includegraphics[width=0.8\linewidth]{eval_econ.pdf}
+  \includegraphics[width=0.95\linewidth]{eval_econ.pdf}
 \end{table}
 
 \subsection{Evaluación de soluciones}
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=\textwidth]{grafico.pdf}
+\includegraphics[width=0.8\textwidth]{grafico.pdf}
 \caption{Diagrama de evaluación}
 \label{diag:diag_eval}
 \end{figure}
@@ -320,7 +337,7 @@ Se evaluará en esta sección a las propuestas planteadas usando criterios técn
   \centering
   \caption{Evaluación de soluciones}
   \label{diag:eval_sol}
-  \includegraphics[width=0.8\linewidth]{tab_puntaje.pdf}
+  \includegraphics[width=0.9\linewidth]{tab_puntaje.pdf}
 \end{table}
 
 De acuerdo a lo observado en los análisis técnico y económico se consideran como buenas soluciones a las soluciones 1 y 3. Sin embargo, la solución 1 resulta la más adecuada. Por este motivo se escoge usar la solución 1 para el desarrollo de esta tesis.
