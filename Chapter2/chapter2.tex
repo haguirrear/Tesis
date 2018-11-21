@@ -79,6 +79,7 @@ Cuando se tiene una cantidad muy grande de datos, es difícil analizarlos para o
 %********* Reinicia la cuenta de los \subsubsection y coloca el formato A,B,..****************************
 \counterwithout{subsubsection}{subsection}
 \renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+\preto{\subsection}{\setcounter{subsubsection}{0}}
 %********************************************************************************************************
 
 \subsubsection{Algoritmos de aprendizaje de máquinas no supervisados}

@@ -1,0 +1,43 @@
+\chapter{Algoritmo de clasificación}
+\label{chap:algoritmo}
+
+ \graphicspath{{Chapter5/Figuras/}{Chapter6/Figs/PDF/}{Chapter4/Figs/}}
+
+\subsection{Recolección de datos}
+Para realizar el diseño del algoritmo de clasificación, se utiliza un dataset disponible en Kaggle. Este dataset fue generado al usar el puerto OBD2 de un vehículo y un IMU para obtener data durante varios recorridos. Sin embargo, no solo se registró datos de los sensores, sino que también se registro data categórica de acuerdo al viaje realizado. En la Tabla~\ref{diag:Dataset} podemos observar los dos datos que contiene este dataset.
+
+\bgroup
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\begin{table}[bth!]
+\centering
+\caption[Parámetros del dataset]{Parámetros del dataset.}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Datos de sensores & Datos Categóricos \\ \midrule
+Tiempo (s) & Número de pasajeros (0 - 5) \\
+Velocidad del vehículo (m/s) & Carga del auto (0 - 10) \\
+Número de cambio & Aire acondicionado (0 - 10) \\
+Carga del motor (%) & Apertura de ventanas (0 - 10) \\
+Aceleración total (m/s2) & Volumen del radio (0 - 10) \\
+RPM del motor & Intensidad de lluvia (0 - 10) \\
+Pitch & Visibilidad (0 - 10) \\
+Aceleración Lateral (m/s2) & Bienestar del conductor (0 - 10) \\
+ & Prisa del conductor (0 - 10) \\ \bottomrule
+\end{tabular}
+\label{diag:Dataset}
+\end{table}
+\egroup
+
+
+
+En total se tiene 21.5 h de manejo grabadas a una frecuencia de 100 Hz. Estos datos se usarán para diseñar y probar el algoritmo de clasificación.
+
+
+
+
+
+\subsection{Change Point Detection}
+\subsection{Redes Neuronales}
+\subsubsection{Preparación de datos}
+\subsubsection{Diseño de la Red Neuronal}
+\subsubsection{Entrenamiento y resultados}
