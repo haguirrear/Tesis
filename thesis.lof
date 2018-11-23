@@ -1,0 +1,65 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Terminolog\IeC {\'\i }a estilo de conducci\IeC {\'o}n}}{5}{figure.caption.6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Resultados del sistema de reconocimiento de estilo de conducci\IeC {\'o}n}}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Tasa de consumo de combustible seg\IeC {\'u}n diferentes estilos de conducci\IeC {\'o}n}}{9}{figure.caption.8}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Comparaci\IeC {\'o}n de se\IeC {\~n}ales usando distancia Euclidiana y DTW}}{11}{figure.caption.10}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Algoritmo de {\it Dynamic Time Warping}}}{12}{figure.caption.11}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Topolog\IeC {\'\i }a de una Red Neuronal usada para Extreme Learning Machines}}{14}{figure.caption.13}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces MPU-5050 de Invensense}}{17}{figure.caption.15}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Modelo de Black Box del sistema.\relax }}{22}{figure.caption.18}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Estructura de Funciones.\relax }}{23}{figure.caption.19}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Dominio Mec\IeC {\'a}nico de la estructura de funciones.\relax }}{24}{figure.caption.20}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Dominio El\IeC {\'e}ctrico de la estructura de funciones.\relax }}{24}{figure.caption.21}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Dominio de Sensores de la estructura de funciones.\relax }}{25}{figure.caption.22}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Dominio de Comunicaci\IeC {\'o}n de la estructura de funciones.\relax }}{25}{figure.caption.23}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Dominio de Procesamiento de la estructura de funciones.\relax }}{26}{figure.caption.24}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Dominio de Interfaz de la estructura de funciones.\relax }}{26}{figure.caption.25}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Dominio de Reconocimiento de Estilo de Conducci\IeC {\'o}n de la estructura de funciones.\relax }}{27}{figure.caption.26}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de evaluaci\IeC {\'o}n\relax }}{42}{figure.caption.42}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagrama de bloques.\relax }}{45}{figure.caption.44}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces ICM-20648, IMU de 6 grados de libertad.\relax }}{47}{figure.caption.47}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces NEO-M8N, m\IeC {\'o}dulo GPS}}{47}{figure.caption.48}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Cobertura de la red 2G de Claro}}{48}{figure.caption.50}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces SIM 800L, m\IeC {\'o}dulo GPRS/GSM}}{49}{figure.caption.51}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Adafruit 1.54" 240x240 Wide Angle TFT LCD Display - ST7789}}{51}{figure.caption.54}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces ELM327 - OBD2 interface}}{51}{figure.caption.56}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Diagrama de Bloques del ESP32 \cite {Esp32}.\relax }}{53}{figure.caption.57}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces ESP-WROOM-32 \cite {ESP32_page}.\relax }}{53}{figure.caption.58}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Diagrama de bloques de las etapas de alimentaci\IeC {\'o}n con la corriente m\IeC {\'a}xima de cada dispositivo.\relax }}{55}{figure.caption.61}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Diagrama de bloques del sistema con corrientes promedio.\relax }}{58}{figure.caption.64}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Esquem\IeC {\'a}tico del m\IeC {\'o}dulo ICM-20648.\relax }}{59}{figure.caption.65}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Esquem\IeC {\'a}tico del m\IeC {\'o}dulo NEO-M8N.\relax }}{59}{figure.caption.66}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Esquem\IeC {\'a}tico del m\IeC {\'o}dulo SIM800L.\relax }}{60}{figure.caption.67}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Esquem\IeC {\'a}tico del m\IeC {\'o}dulo SIM8055.\relax }}{61}{figure.caption.68}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Esquem\IeC {\'a}tico las los indicadores LED.\relax }}{61}{figure.caption.69}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Esquem\IeC {\'a}tico bornera para conectar la pantalla.\relax }}{62}{figure.caption.70}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Esquem\IeC {\'a}tico de la implementaci\IeC {\'o}n del ESP-WROOM-32.\relax }}{63}{figure.caption.71}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Esquem\IeC {\'a}tico de la implementaci\IeC {\'o}n del TPS563210.\relax }}{63}{figure.caption.72}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Esquem\IeC {\'a}tico de la implementaci\IeC {\'o}n del LT1764A.\relax }}{65}{figure.caption.73}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Dise\IeC {\~n}o del PCB.\relax }}{65}{figure.caption.74}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Parte superior del PCB.\relax }}{66}{figure.caption.75}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Parte inferior del PCB.\relax }}{66}{figure.caption.76}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Parte superior del PCB con componentes.\relax }}{68}{figure.caption.78}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Parte inferior del PCB con componentes.\relax }}{68}{figure.caption.79}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Vista lateral del PCB.\relax }}{69}{figure.caption.80}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Diagrama de bloques del software.\relax }}{70}{figure.caption.81}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Diagrama de flujo del software de los dispositivos cliente.\relax }}{72}{figure.caption.82}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Diagrama de flujo del software del servidor.\relax }}{73}{figure.caption.84}
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Diagrama de flujo de la funci\IeC {\'o}n Procesar Datos.\relax }}{74}{figure.caption.85}
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Diagrama de flujo de la funci\IeC {\'o}n Clasificar maniobra.\relax }}{75}{figure.caption.86}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de flujo del desarrollo del algoritmo de clasificaci\IeC {\'o}n.\relax }}{77}{figure.caption.87}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Partes de un dataset.\relax }}{78}{figure.caption.88}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Duraci\IeC {\'o}n de cada viaje grabado en el dataset.\relax }}{79}{figure.caption.90}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces N\IeC {\'u}mero de instancias para cada clase.\relax }}{80}{figure.caption.91}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces N\IeC {\'u}mero de instancias para cada clase, con clase dividida en 2 grupos.\relax }}{80}{figure.caption.92}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces N\IeC {\'u}mero de puntos para cada clase, con clase dividida en 3 grupos.\relax }}{81}{figure.caption.93}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Varianza para cada componente obtenido a partir de PCA.\relax }}{83}{figure.caption.96}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Compontentes gr\IeC {\'a}ficados entre s\IeC {\'\i } luego de usar.\relax }}{84}{figure.caption.97}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Compontentes gr\IeC {\'a}ficados entre s\IeC {\'\i } luego de aplicar Fast ICA.\relax }}{85}{figure.caption.98}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Compontentes gr\IeC {\'a}ficados entre s\IeC {\'\i } luego de normalizar.\relax }}{86}{figure.caption.99}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: Abstract/abstract.aux
+A level-1 auxiliary file: Introduccion/introduccion.aux
+A level-1 auxiliary file: Chapter1/chapter1.aux
+A level-1 auxiliary file: Chapter2/chapter2.aux
+A level-1 auxiliary file: Chapter3/chapter3.aux
+A level-1 auxiliary file: Chapter4/chapter4.aux
+A level-1 auxiliary file: Chapter5/chapter5.aux
+A level-1 auxiliary file: Chapter6/chapter6.aux
+A level-1 auxiliary file: Chapter7/chapter7.aux
+The style file: IEEEtranN.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: References/references.bib
+-- IEEEtranN.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Natbib version - not for normal IEEE work.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--empty author in publimetro_2017
+Warning--missing publisher in transporte
+Warning--empty author and editor in Highway_cap_manual
+
+Done.
+You've used 40 entries,
+            4855 wiz_defined-function locations,
+            1187 strings with 15229 characters,
+and the built_in function-call counts, 30150 in all, are:
+= -- 2663
+> -- 847
+< -- 170
++ -- 450
+- -- 196
+* -- 1672
+:= -- 4601
+add.period$ -- 68
+call.type$ -- 40
+change.case$ -- 73
+chr.to.int$ -- 414
+cite$ -- 47
+duplicate$ -- 2048
+empty$ -- 2268
+format.name$ -- 247
+if$ -- 6799
+int.to.chr$ -- 2
+int.to.str$ -- 41
+missing$ -- 352
+newline$ -- 166
+num.names$ -- 81
+pop$ -- 927
+preamble$ -- 1
+purify$ -- 40
+quote$ -- 2
+skip$ -- 2247
+stack$ -- 0
+substring$ -- 1011
+swap$ -- 1434
+text.length$ -- 33
+text.prefix$ -- 9
+top$ -- 6
+type$ -- 608
+warning$ -- 3
+while$ -- 110
+width$ -- 0
+write$ -- 474
+(There were 3 warnings)

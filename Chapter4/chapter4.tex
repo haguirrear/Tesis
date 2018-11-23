@@ -774,38 +774,14 @@ Cuando se detecta el cambio de maniobra, se ejecuta la función "Clasificar mani
 \end{figure}
 
 \subsubsection{Función Clasificar maniobra}
-Esta función es la encargada de clasificar una maniobra según su estilo de conducción. Como se observa en la Fig.~\ref{fig:Flujo_servidor_clasificar}, el primer paso consiste en extraer todos las muestras de datos que pertenecen a la maniobra. Estos datos van a ser descritos usando parámetros estadísticos para series temporales.
+Esta función es la encargada de clasificar una maniobra según su estilo de conducción. Como se observa en la Fig.~\ref{fig:Flujo_servidor_clasificar}, el primer paso consiste en extraer todos las muestras de datos que pertenecen a la maniobra. Estos datos van a ser descritos usando características estadísticas para series temporales.
 
-Estos parámetros se pueden apreciar en la Tabla.\ref{diag:features}. Fueron utilizados en \cite{Feature_extraction} para calsificar  una variable. Una vez calculados los Parámetros, se obtiene por cada maniobra (de varias filas de datos) una sola fila representada por los parámetros. Esta fila es ahora introducida en el modelo de clasificación que ha sido entrenado previamente. Este modelo nos entregará la clase de estilo de conducción. La etapa del desarrollo del modelo y de su entrenamiento se desarrolla en el Capítulo~\ref{chap:algoritmo}.
-
-
-
-
-\bgroup
-\def\arraystretch{1.5}%  1 is the default, change whatever you need
-\begin{table}[htbp!]
-\centering
-\caption[Parámetros para series de tiempo]{Parámetros para series de tiempo \cite{Feature_extraction}.}
-\begin{tabular}{p{0.5\textwidth}l}
-\toprule
-\multicolumn{2}{l}{Parámetros estadísticos para series temporales} \\ \midrule
-$X_{rms}= \sqrt{\frac{1}{N}\sum_{n=1}^{N} x^{2}(n)} $  &
-$ x_{p-p}=x_{max}-x_{min} $  \\
-$ S_f=\displaystyle\frac{x_{rms}}{\left|\frac{1}{N}\sum_{n=1}^{N} x(n)\right|} $  &
-$ CL_f=\displaystyle\frac{x_{max}}{\left|\frac{1}{N}\sum_{n=1}^{N} \sqrt{|x(n)|}\right|^{2}} $  \\
-$ C_f=\displaystyle\frac{x_{max}}{x_{rms}} $  &
-$ I_f=\displaystyle\frac{x_{max}}{\left|\frac{1}{N}\sum_{n=1}^{N} x(n)\right|} $ \\
-$ K_v=\displaystyle\frac{\frac{1}{N}\sum_{n=1}^{N} x^{4}(n)}{x_{rms}^4} $ \\
-\multicolumn{2}{p{\textwidth}}{dónde  $x(n)$ es una serie temporal para la cuál  $n = 1,2,...,N$ y $N$ es el número de puntos de la serie.} \\\bottomrule
-\end{tabular}
-\label{diag:features}
-\end{table}
-\egroup
+Una vez calculadas estas características, se obtiene por cada maniobra (de varios puntos temporales) una sola instancia . Esta instancia es ahora introducida en el modelo de clasificación que ha sido entrenado previamente. Este modelo nos entregará la clase de estilo de conducción. La etapa del desarrollo del modelo y de su entrenamiento se desarrolla en el Capítulo~\ref{chap:algoritmo}.
 
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=0.35\textwidth]{Flujo_servidor_clasificar.pdf}
+\includegraphics[width=0.4\textwidth]{Flujo_servidor_clasificar.pdf}
 \caption{Diagrama de flujo de la función Clasificar maniobra.}
 \label{fig:Flujo_servidor_clasificar}
 \end{figure}

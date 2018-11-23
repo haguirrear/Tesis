@@ -1,0 +1,65 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Algoritmo de clasificaci\IeC {\'o}n}{77}{chapter.5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:algoritmo}{{5}{77}{Algoritmo de clasificación}{chapter.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de flujo del desarrollo del algoritmo de clasificaci\IeC {\'o}n.\relax }}{77}{figure.caption.87}}
+\newlabel{fig:Flujo_desarrollo}{{5.1}{77}{Diagrama de flujo del desarrollo del algoritmo de clasificación.\relax }{figure.caption.87}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Partes de un dataset.\relax }}{78}{figure.caption.88}}
+\newlabel{fig:datos_ejemplo}{{5.2}{78}{Partes de un dataset.\relax }{figure.caption.88}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.0.1}Recolecci\IeC {\'o}n de datos}{78}{subsection.5.0.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Caracter\IeC {\'\i }sticas o features del dataset}}{79}{table.caption.89}}
+\newlabel{diag:Dataset}{{5.1}{79}{Características o features del dataset}{table.caption.89}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Duraci\IeC {\'o}n de cada viaje grabado en el dataset.\relax }}{79}{figure.caption.90}}
+\newlabel{fig:duracion_datps}{{5.3}{79}{Duración de cada viaje grabado en el dataset.\relax }{figure.caption.90}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces N\IeC {\'u}mero de instancias para cada clase.\relax }}{80}{figure.caption.91}}
+\newlabel{fig:numeros_clases}{{5.4}{80}{Número de instancias para cada clase.\relax }{figure.caption.91}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces N\IeC {\'u}mero de instancias para cada clase, con clase dividida en 2 grupos.\relax }}{80}{figure.caption.92}}
+\newlabel{fig:numeros_clases_2}{{5.5}{80}{Número de instancias para cada clase, con clase dividida en 2 grupos.\relax }{figure.caption.92}{}}
+\citation{6083078}
+\citation{4938719}
+\citation{8207769}
+\citation{Va-2013}
+\citation{6957822}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces N\IeC {\'u}mero de puntos para cada clase, con clase dividida en 3 grupos.\relax }}{81}{figure.caption.93}}
+\newlabel{fig:numeros_clases_3}{{5.6}{81}{Número de puntos para cada clase, con clase dividida en 3 grupos.\relax }{figure.caption.93}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.0.2}Segmentaci\IeC {\'o}n de los datos}{81}{subsection.5.0.2}}
+\citation{Feature_extraction}
+\citation{Feature_extraction}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.0.3}Extracci\IeC {\'o}n de caracter\IeC {\'\i }sticas}{82}{subsection.5.0.3}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Par\IeC {\'a}metros para series de tiempo}}{82}{table.caption.94}}
+\newlabel{diag:features}{{5.2}{82}{Parámetros para series de tiempo}{table.caption.94}{}}
+\@setckpt{Chapter5/chapter5}{
+\setcounter{page}{83}
+\setcounter{equation}{0}
+\setcounter{enumi}{9}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{5}
+\setcounter{section}{0}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{6}
+\setcounter{table}{2}
+\setcounter{@pps}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{NAT@ctr}{0}
+\setcounter{parentequation}{0}
+\setcounter{Item}{14}
+\setcounter{Hfootnote}{0}
+\setcounter{bookmark@seq@number}{65}
+\setcounter{ContinuedFloat}{0}
+\setcounter{r@tfl@t}{1}
+\setcounter{subfigure}{0}
+\setcounter{subtable}{0}
+\setcounter{nlinenum}{0}
+\setcounter{section@level}{0}
+}
