@@ -3,9 +3,28 @@
  En este capítulo se desarrollará el diseño del sistema a partir del concepto óptimo de solución desarrollado en el capítulo anterior. Para comenzar, se presenta el sistema integrado en su totalidad y se describe su funcionamiento. Luego, se presentará el desarrollo del sistema electrónico. El cuál comprende la selección de componentes, los diagramas esquemáticos y el desarrollo de la placa electrónica. A continuación, se presentará el diseño mecánico. El cuál consiste de cálculos básicos, selección de componentes y materiales y descripción de planos de ensamble y despiece. Por último, se presentará el diseño del algoritmo de clasificación. El cuál incluye los diagramas de flujo que describen los algoritmos utilizados. Las hojas de datos y planos completos se pueden encontrar en los Anexos
  %******************* Aquí falta indicar que anexos*******************************
 
- \graphicspath{{Chapter4/Figuras/}{Chapter4/Figs/PDF/}{Chapter4/Figs/}}
+ \graphicspath{{Chapter4/Figuras/}{Chapter4/Figs/PDF/}{Chapter4/Figs/}{Chapter4/segundo/}}
 
 \section{Integración del sistema mecatrónico}
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=\textwidth]{modelo_1.pdf}
+\caption{Dispositivo de clasificación de estilo de conducción.}
+\label{fig:modelo1}
+\end{figure}
+
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=\textwidth]{con_auto1.png}
+\caption{Dispositivo de clasificación de estilo de conducción montado en un auto.}
+\label{fig:modelo2}
+\end{figure}
+
+%Falta incluir otra figura de la vista superior con la tapa del case en transparencia
+El sistema, Fig.~\ref{fig:modelo1} , esta compuesto por una placa electrónica que recogerá los datos de conducción usando sensores y estará contenida por una caja electrónica o case. Estos datos se enviarán a través de la red 2G a un servidor y este responderá con el estilo de conducción, el cual se mostrará en la pantalla.
+
+Este dispositivo estará colocado en el panel frontal del vehículo como se puede apreciar en la Fig.~\ref{fig:modelo2}. Para sujetar el dispositivo al panel se usa cinta adhesiva de doble contacto. El dispositivo cuenta con 4 puertos: Puerto de carga, ranura de tarjeta Nano SIM y 2 puertos SMA para las antenas de GPS y GPRS/GSM.
 
 
 \section{Funcionamiento del sistema mecatrónico}
@@ -43,8 +62,6 @@ Para seleccionar este componente empecemos por determinar las características q
 
 Realizando el mismo análisis para el giroscopio, en \cite{6083078} y \cite{6629603} se tiene que el rango mínimo de medición es de \SI{\pm57}{rad/s}
 
-El sensor que se eligió debido a que cumple con las características mencionadas anteriormente es el \textbf{ICM-20648} (Fig.~\ref{fig:IMU}) producido por TDK InvenSense. En las Tablas \ref{diag:IMU1} y \ref{diag:IMU2} se muestran sus principales características.
-
 \bgroup
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
 \begin{table}[htbp!]
@@ -61,6 +78,13 @@ Rango del Giroscopio (\si{\degree/sec}) & Sensibilidad del Giroscopio (\si{LSB/\
 \label{diag:IMU1}
 \end{table}
 
+\egroup
+
+El sensor que se eligió debido a que cumple con las características mencionadas anteriormente es el \textbf{ICM-20648} (Fig.~\ref{fig:IMU}) producido por TDK InvenSense. En las Tablas \ref{diag:IMU1} y \ref{diag:IMU2} se muestran sus principales características.
+
+
+\bgroup
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
 \begin{table}[htbp!]
 \centering
 \caption[Condiciones de Operación del ICM-20648]{Condiciones de Operación del ICM-20648 \cite{ICM20648}.}
@@ -78,13 +102,14 @@ DMP & Onboard Digital Motion Processor \\ \bottomrule
 
 \egroup
 
-\begin{figure}[htbp!]
+\begin{figure}[htb!]
 \centering
 \includegraphics[width=0.4\textwidth]{ICM-20648.png}
 \caption{ICM-20648, IMU de 6 grados de libertad.}
 \label{fig:IMU}
 \end{figure}
 
+\newpage
 
 \subsubsection{Módulo GPS}
 Este módulo se encargará de detectar la posición exacta del vehículo en coordenadas. Para hacer esto se puede recurrir a distintos servicios del Sistema mundial de navegación por satélite (GNSS). Actualmente se encuentran dos operativos completamente: GPS y GLONASS. Es primero es el servicio hecho por Estados Unidos y el segundo es el realizado por Rusia. Es importante considerar la capacidad de los diferentes módulos para poder acceder a estos dos servicios.
@@ -175,12 +200,6 @@ Bandas de frecuancia & Quad-band: GSM 850, EGSM 900, DCS 1800, PCS 1900 \\ \bott
 
 
 
-
-
-
-
-
-
 \subsubsection{Pantalla}
 La pantalla cumplirá el rol de mostrar la clasificación del estilo de conducción del usuario. Para poder transmitir la información sin generar distracciones se usarán símbolos y colores para representar los estilos de conducción.
 
@@ -190,11 +209,9 @@ Por último, el tamaño de la pantalla debe permitir la identificación del sím
 
 Las pantallas LCD pueden alcanzar una densidad de imagen más alta que las OLED. Sin embargo, las OLED tienen un mejor ángulo de visión y un menor consumo. Por otro lado, las IPS LCD tienen también un muy buen ángulo de visión y buena densidad de imagen.
 
-En la Tabla.~\ref{diag:Display} se pueden ver 3 alternativas para la pantalla. De estas se escoge la pantalla IPS LCD (Fig.~\ref{fig:Display}), ya que tiene buen ángulo de visibilidad, tamaño y resolución.
-
 \bgroup
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
-\begin{table}[htbp!]
+\begin{table}[htb!]
 \centering
 \caption{Alternativas de pantallas}
 \begin{tabular}{@{}p{1.6cm}lllP{3cm}lc@{}}
@@ -208,8 +225,10 @@ Nr. \mbox{Producto} & Tecnología & Controlador & Tamaño & Voltaje de Operació
 \end{table}
 \egroup
 
+En la Tabla.~\ref{diag:Display} se pueden ver 3 alternativas para la pantalla. De estas se escoge la pantalla IPS LCD (Fig.~\ref{fig:Display}), ya que tiene buen ángulo de visibilidad, tamaño y resolución.
 
-\begin{figure}[hbtp!]
+
+\begin{figure}[hbt!]
 \centering
 \includegraphics[width=0.8\textwidth]{IPS_LCD.jpg}
 \caption[Adafruit 1.54" 240x240 Wide Angle TFT LCD Display - ST7789]{Adafruit 1.54" 240x240 Wide Angle TFT LCD Display - ST7789 \cite{IPS_LCD}.}
@@ -459,9 +478,9 @@ En esta sección se presentarán las conexiones de los componente seleccionados 
 \subsubsection{IMU}
 Se realiza el esquemático (Fig.~\ref{fig:IMU_esquem}) mostrando las conexiones necesarias para poder alimentar al módulo y para que este pueda comunicarse con el microcontrolador. Se establece el voltaje de alimentación y el voltaje lógico a \SI{3.3}{V}. En la hoja de datos \cite{ICM20648} se recomiendan los valores de los capacitores y se conectan los pines necesarios para poder implementar el protocolo de comunicación I\textsuperscript{2}C. El pin 9 se conecta a GND para establecer la dirección I\textsuperscript{2}C a b1101000.
 
-\begin{figure}[htbp!]
+\begin{figure}[htb!]
 \centering
-\includegraphics[width=0.9\textwidth]{IMU_esquem.pdf}
+\includegraphics[width=\textwidth]{IMU_esquem.pdf}
 \caption{Esquemático del módulo ICM-20648.}
 \label{fig:IMU_esquem}
 \end{figure}
@@ -486,7 +505,7 @@ Esta batería, que se recomienda en la hoja de datos \cite{GPS}, se encargará d
 \subsubsection{Módulo GPRS/GSM}
 A partir de los parámetros mencionados en la Tabla~\ref{diag:SIM} y de la hoja de datos \cite{SIM800L} se realiza el esquemático (Fig.~\ref{fig:GSM_esquem}) de las conexiones necesarias para alimentar al módulo e implementar la comunicación con el microcontrolador.
 
-\begin{figure}[htbp!]
+\begin{figure}[htb!]
 \centering
 \includegraphics[width=\textwidth]{GSM_esquem.pdf}
 \caption{Esquemático del módulo SIM800L.}
@@ -676,15 +695,131 @@ El PCB diseñado tiene componentes que exceden las dimensiones de la placa. Las 
 
 
 \section{Diseño mecánico}
+En este capítulo se describirán los planos de ensamble y despiece y se seleccionarán los componentes mecánicos y materiales a usar.
 
-\subsection{Diseño del Case principal}
+\subsection{Diseño del Case Principal}
 
-El PCB antes diseñado será colocado en un case que se fabricará usando impresión 3D. Las dimensiones principales se pueden apreciar en las Figuras\ref{fig:board_top_con} y \ref{fig:board_side_con} El case contará con una entrada de alimentación de 2.5 mm, una ranura para una tarjeta nano SIM, dos conectores SMA para conectar las antenas de GPS y GPRS/GSM y por último 2 indicadores LED que indicarán el encendido del dispositivo y su conexión a Internet.
-\subsection{Diseño del Case de la pantalla}
-\subsection{Diseño del brazo de la pantalla}
+El PCB antes diseñado será colocado en un case que se fabricará usando impresión 3D de dimensiones $\SI{63}{mm} \times \SI{108}{mm} \times \SI{28}{mm}$. El case contará con una entrada de alimentación de 2.5 mm, una ranura para una tarjeta nano SIM, dos conectores SMA para conectar las antenas de GPS y GPRS/GSM y por último 2 indicadores LED que indicarán el encendido del dispositivo y su conexión a Internet. Todos estos elementos se pueden observar en las Fig.~\ref{fig:exploded}.
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.8\textwidth]{union_atornillada.pdf}
+\caption{Unión de la tarjeta electrónica con el case.}
+\label{fig:ensamble_principal}
+\end{figure}
+
+
+\newpage
+
+Este case cuenta con dos partes, una superior y otra inferior. En la inferior se ensamblará la tarjeta electrónica vista en el capítulo anterior. Esta unión (Fig.~\ref{fig:ensamble_principal}) se realizará usando una unión atornillada de un Tornillo M2 x 3 y un Inserto M2 x 2.5 que se coloca en un agujero en el case principal inferior.Este  inserto se puede observar en la Fig.~\ref{fig:insert} y esta diseñado para ser usado en plásticos (como el ABS).
+
+\vspace{5mm}
+
+\begin{figure} [hbt!]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{insert_1.pdf}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.7\linewidth]{insert_2.pdf}
+\end{minipage}
+\caption{Inserto M2 x 2.5 para plástico.}
+\label{fig:insert}
+\end{figure}
+
+Luego que la placa electrónica esta correctamente sujeta, se ensambla la parte superior del case. Para este ensamble se utilizan unas pestañas que encajarán entre si para facilitar el posicionamiento de las piezas y "snap fits" para la sujeción de las dos piezas. Esto se puede observar en la Fig.~\ref{fig:union-case_principal}.
+
+Para el diseño de estás conexiones se tuvo en cuenta una separación de \SI{0.2}{mm} en las pestañas para asegurar que encajarán una con otra y que existirá un poco de fricción luego de ser impresas. Además se considero también una separación de \SI{0.3}{mm} en los snap fits para asegurar su posicionamiento.
+
+\vspace{5mm}
+
+\begin{figure}[hbt!]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{snap.pdf}
+  \caption{Snap fits para la conexión}
+  \label{fig:snaps_1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{lid.pdf}
+  \caption{Pestañas para el posicionamiento}
+  \label{fig:lid_1}
+\end{subfigure}
+\caption{Unión entre la parte superior e inferior del Case Principal}
+\label{fig:union-case_principal}
+\end{figure}
+
+\newpage
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=\textwidth]{exploded.pdf}
+\caption{Vista de explosión del case principal.}
+\label{fig:exploded}
+\end{figure}
 
 
 
+%El case se diseñó teniendo en cuenta las limitaciones al usar ABS
+
+%olerancias de impresión 3D de \SI{0.5}{mm} para que las piezas encajen sin problemas. El case se divide en dos partes. Estas partes encajan por forma y se atornillarán
+
+%Para el ensamblaje de las dos partes del case se usan tornillos de rosca M2. Para la union atornillada se usan \textit{Inserts} metálicos para plástico que habilitan una rosca métrica.
+%\subsection{Diseño del Case de la pantalla}
+\subsection{Selección del brazo de la pantalla}
+
+Para seleccionar el brazo que sujete la pantalla se tienen en cuenta dos requerimientos:
+\vspace{-3mm}
+\begin{itemize}
+    \itemsep0pt
+    \item La posición de la pantalla debe ser regulable por el conductor.
+    \item Los cables tienen que poder ser conducidos a través del brazo hacia la pantalla
+\end{itemize}
+
+Se usarán entonces las mangueras a piezas de la marca \textit{Loc-Line} (Fig.~\ref{fig:brazo_1}). Estas mangueras se componen de múltiples piezas huecas, cada una se une a la siguiente por medio de una articulación de rótula. PONER AQUI UNA IMAGEN Y DESCRIPCION DE LA ROTULA
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.8\textwidth]{brazo_1.pdf}
+\caption{Elemento Loc-Line.}
+\label{fig:brazo_1}
+\end{figure}
+
+
+\subsection{Diseño del case de la pantalla}
+El case de la pantalla se puede observar en la Fig.~\ref{fig:exploded_pantalla}. Este case de dimensiones $\SI{43}{mm} \times \SI{49}{mm} \times \SI{21}{mm}$ será impreso en 3D usando también ABS. Para ensamblar las dos partes del case con la pantalla, se inserta la placa electrónica de la pantalla en un agujero con su misma forma en el case inferior de la pantalla. Luego la parte superior del case es ensamblada usando pestañas para el posicionamiento y snap fits para la sujeción.
+
+\begin{figure}[hbt!]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.97\linewidth]{union_pantalla.pdf}
+  \caption{Unión del Case de la Pantalla}
+  \label{fig:union_pantalla}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{snap_pantalla.pdf}
+  \caption{Snap fit del ensamble del Case de la Pantalla}
+  \label{fig:snap_pantalla}
+\end{subfigure}
+\caption{Detalles del ensamble del case de la pantalla}
+\label{fig:test}
+\end{figure}
+
+
+La parte superior del case presiona a la placa electrónica  de la pantalla contra la parte inferior del case usando 4 columnas. Esto se puede observar en la Fig.~\ref{fig:union_pantalla}. Además el snap fit (Fig.~\ref{fig:snap_pantalla}) de este ensamble es distinto del usado en el case principal. En esta ocasión el ángulo de entrada es \SI{45}{\degree} pero el ángulo de salida es \SI{90}{\degree}. Esto significa que la unión es inseparable, ya que el ángulo de entrada permitirá el ensamble y el de salida lo impedirá. Esto se debe a que la pantalla se podrá mover para acomodarse al conductor en cada situación, lo que hace necesario que el case no se separe por error.
+
+
+\begin{figure}[hbtp!]
+\centering
+\includegraphics[width=\textwidth]{exploded_2.pdf}
+\caption{Vista de explosión del case de la pantalla.}
+\label{fig:exploded_pantalla}
+\end{figure}
 
 \newpage
 
