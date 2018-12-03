@@ -257,7 +257,7 @@ En la Tabla~\ref{diag:resumen} se puede observar un resumen de las soluciones es
 \newpage
 
 \subsection{Concepto integrado de solución 1}
-El sistema se encuentra contenido en un case de plástico, que albergará todos los componentes electrónicos y que se sujetará usando un {\it phone holder} en el panel frontal del auto. Además, este sistema contará con una pantalla que estará posicionada de tal manera que el conductor pueda mirarla con facilidad. Este elemento será el que retroalimente el estilo de conducción al conductor.
+El sistema se puede observar en la Fig.~\ref{fig:dibujo_1} se encuentra contenido en un case de plástico, que albergará todos los componentes electrónicos y que se sujetará usando un {\it phone holder} en el panel frontal del auto. Además, este sistema contará con una pantalla que estará posicionada de tal manera que el conductor pueda mirarla con facilidad. Este elemento será el que retroalimente el estilo de conducción al conductor.
 
 El dispositivo se conectará a la toma de \SI{12}{V} y a través de un regulador switching se alcanzarán los \SI{3.3}{V} que necesita el ESP32 y los \SI{5}{V} que necesitan algunos de los módulos.
 Estos módulos consisten en: Un acelerómetro de 3 ejes, un giroscopio de 3 ejes, un magnetómetro de 3 ejes (IMU), un módulo GPS y un módulo GPRS.
@@ -274,8 +274,15 @@ La red neuronal procesará las entradas y arrojará en la salida la clase a la q
 
 El cálculo de consumo de combustible se realizará también en el servidor usando parte de los datos que provienen del módulo OBD2. Sin embargo,  esta información solo estará disponible si se tienen los parámetros adecuados desde el puerto OBD2 (Cada auto tiene disponibles diferentes parámetros).
 
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\textwidth]{Dibujo_1.pdf}
+\caption{Concepto integrado de solución 1.}
+\label{fig:dibujo_1}
+\end{figure}
+
 \subsection{Concepto integrado de solución 2}
-El sistema se encuentra contenido en un case de plástico, que albergará todos los componentes electrónicos y que se sujetará usando sujetador magnético en la parte superior del auto (techo). Además, este sistema contará con smartphone o tablet que este sujetada por un phone holder de tal manera que el conductor pueda mirarla con facilidad. Este elemento será el que retroalimente el estilo de conducción al conductor.
+El sistema que se puede observar en la Fig.~\ref{fig:dibujo_2} se encuentra contenido en un case de plástico, que albergará todos los componentes electrónicos y que se sujetará usando sujetador magnético en la parte superior del auto (techo). Además, este sistema contará con smartphone o tablet que este sujetada por un phone holder de tal manera que el conductor pueda mirarla con facilidad. Este elemento será el que retroalimente el estilo de conducción al conductor.
 
 El dispositivo contará con una batería de ion litio con la que se encargará de obtener energía para su funcionamiento y a través de un regulador lineal se alcanzarán los \SI{5}{V} que necesita la raspberry pi zero w y algunos de los módulos. Estos módulos consisten en: Un acelerómetro de 2 ejes, un giroscopio de 2 ejes, un magnetómetro de 2 ejes (IMU de 6 ejes), un módulo GPS y un módulo GPRS.
 
@@ -289,8 +296,16 @@ El algoritmo arrojará entonces la clase a la que pertenece este segmento, pudie
 
 El cálculo de consumo de combustible se realizará en la raspberry pi usando parte de los datos que provienen del módulo OBD2. Sin embargo,  esta información solo estará disponible si se tienen los parámetros adecuados desde el puerto OBD2 (Cada auto tiene disponibles diferentes parámetros).
 
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\textwidth]{Dibujo_2.pdf}
+\caption{Concepto integrado de solución 2.}
+\label{fig:dibujo_2}
+\end{figure}
+
+\newpage
 \subsection{Concepto integrado de solución 3}
-En esta solución el sistema usará los sensores internos del smartphone para recopilar los datos necesarios, por lo que se requerirá un sujetador de smartphone para autos en el panel frontal del auto que este posicionado de tal manera que el conductor pueda mirarla con facilidad, ya que el smartphone también mostrará los datos obtenidos luego de la clasificación.
+En esta solución que se puede observar en la Fig.~\ref{fig:dibujo_3} el sistema usará los sensores internos del smartphone para recopilar los datos necesarios, por lo que se requerirá un sujetador de smartphone para autos en el panel frontal del auto que este posicionado de tal manera que el conductor pueda mirarla con facilidad, ya que el smartphone también mostrará los datos obtenidos luego de la clasificación.
 
 El dispositivo se conectará a la toma de \SI{12}{V} por medio del cargador de smartphone, para asegurarse de no perder energía y apagarse.
 
@@ -304,36 +319,46 @@ El segundo paso es usar el Random Forest para clasificar adecuadamente este segm
 
 El cálculo de consumo de combustible se realizará también en el servidor usando parte de los datos que provienen del módulo OBD2. Sin embargo,  esta información solo estará disponible si se tienen los parámetros adecuados desde el puerto OBD2 (Cada auto tiene disponibles diferentes parámetros).
 
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=\textwidth]{Dibujo_3.pdf}
+\caption{Concepto integrado de solución 3.}
+\label{fig:dibujo_3}
+\end{figure}
+
 \section{Evaluación de conceptos de solución}
 Se evaluará en esta sección a las propuestas planteadas usando criterios técnicos y económicos. De esta manera se obtendrá la solución óptima.
 
 \subsection{Evaluación técnica}
-\begin{table}[htbp!]
+En esta evaluación se tienen en cuenta la eficiencia energética del dispositivo, la seguridad en su uso, la rapidez de su respuesta, la rigidez de su ensamble frente a aceleraciones fuertes, la confiabilidad de los resultados, la ergonomía, la facilidad en el transporte de la solución y por último su complejidad de instalación. 
+\begin{table}[htb!]
   \centering
   \caption{Evaluación técnica}
   \label{diag:eval_tec}
   \includegraphics[width=0.95\linewidth]{eval_tec.pdf}
 \end{table}
 
-\newpage
 
 \subsection{Evaluación económica}
-\begin{table}[htbp!]
+En esta evaluación se tiene en cuenta el número de piezas de cada solución, la facilidad para adquirir los componentes, el costo de fabricación, el costo de tecnología, la facilidad de mantenimiento y los costos de operación.
+\begin{table}[htb!]
   \centering
   \caption{Evaluación económica}
   \label{diag:eval_econ}
   \includegraphics[width=0.95\linewidth]{eval_econ.pdf}
 \end{table}
 
+\newpage
+
 \subsection{Evaluación de soluciones}
-\begin{figure}[htbp!]
+\begin{figure}[htb!]
 \centering
-\includegraphics[width=0.8\textwidth]{grafico.pdf}
+\includegraphics[width=\textwidth]{grafico.pdf}
 \caption{Diagrama de evaluación}
 \label{diag:diag_eval}
 \end{figure}
 
-\begin{table}[htbp!]
+\begin{table}[htb!]
   \centering
   \caption{Evaluación de soluciones}
   \label{diag:eval_sol}

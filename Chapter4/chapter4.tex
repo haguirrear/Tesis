@@ -22,7 +22,7 @@
 \end{figure}
 
 %Falta incluir otra figura de la vista superior con la tapa del case en transparencia
-El sistema, Fig.~\ref{fig:modelo1} , esta compuesto por una placa electrónica que recogerá los datos de conducción usando sensores y estará contenida por una caja electrónica o case. Estos datos se enviarán a través de la red 2G a un servidor y este responderá con el estilo de conducción, el cual se mostrará en la pantalla.
+El sistema, Fig.~\ref{fig:modelo1} , esta compuesto por una placa electrónica que recogerá los datos de conducción usando sensores y estará contenida por una caja electrónica o case, se le llamará case principal. Estos datos se enviarán a través de la red 2G a un servidor y este responderá con el estilo de conducción, el cual se mostrará en la pantalla.
 
 Este dispositivo estará colocado en el panel frontal del vehículo como se puede apreciar en la Fig.~\ref{fig:modelo2}. Para sujetar el dispositivo al panel se usa cinta adhesiva de doble contacto. El dispositivo cuenta con 4 puertos: Puerto de carga, ranura de tarjeta Nano SIM y 2 puertos SMA para las antenas de GPS y GPRS/GSM.
 
@@ -695,11 +695,12 @@ El PCB diseñado tiene componentes que exceden las dimensiones de la placa. Las 
 
 
 \section{Diseño mecánico}
-En este capítulo se describirán los planos de ensamble y despiece y se seleccionarán los componentes mecánicos y materiales a usar.
 
 \subsection{Diseño del Case Principal}
 
-El PCB antes diseñado será colocado en un case que se fabricará usando impresión 3D de dimensiones $\SI{63}{mm} \times \SI{108}{mm} \times \SI{28}{mm}$. El case contará con una entrada de alimentación de 2.5 mm, una ranura para una tarjeta nano SIM, dos conectores SMA para conectar las antenas de GPS y GPRS/GSM y por último 2 indicadores LED que indicarán el encendido del dispositivo y su conexión a Internet. Todos estos elementos se pueden observar en las Fig.~\ref{fig:exploded}.
+El PCB antes diseñado tiene las dimensiones $\SI{58}{mm} \times \SI{103.43}{mm} \times \SI{14.9}{mm}$. Se diseña entonces un case que pueda alojar esta placa electrónica y que permita acceder a las interfaces que posee (Conexión de alimentación, ranura de Nano SIM y conectores SMA). El case diseñado tendrá las dimensiones $\SI{63}{mm} \times \SI{108}{mm} \times \SI{28}{mm}$ y además de las interfaces mencionadas anteriormente tendrá también 2 indicadores LED que mostraran el encendido del dispositivo y su conexión a Internet. Todos estos elementos se pueden observar en las Fig.~\ref{fig:exploded}.
+
+    
 
 \begin{figure}[hbt!]
 \centering
@@ -711,7 +712,7 @@ El PCB antes diseñado será colocado en un case que se fabricará usando impres
 
 \newpage
 
-Este case cuenta con dos partes, una superior y otra inferior. En la inferior se ensamblará la tarjeta electrónica vista en el capítulo anterior. Esta unión (Fig.~\ref{fig:ensamble_principal}) se realizará usando una unión atornillada de un Tornillo M2 x 3 y un Inserto M2 x 2.5 que se coloca en un agujero en el case principal inferior.Este  inserto se puede observar en la Fig.~\ref{fig:insert} y esta diseñado para ser usado en plásticos (como el ABS).
+Este case cuenta con dos partes, una superior y otra inferior. En la inferior se ensamblará la tarjeta electrónica vista en el capítulo anterior. El ensamble (Fig.~\ref{fig:ensamble_principal}) se realizará usando una unión atornillada de un Tornillo M2 x 3 y un Inserto M2 x 2.5 que se coloca en un agujero en el case principal inferior.Este  inserto se puede observar en la Fig.~\ref{fig:insert} y esta diseñado para ser usado en plásticos.
 
 \vspace{5mm}
 
@@ -779,7 +780,8 @@ Para seleccionar el brazo que sujete la pantalla se tienen en cuenta dos requeri
     \item Los cables tienen que poder ser conducidos a través del brazo hacia la pantalla
 \end{itemize}
 
-Se usarán entonces las mangueras a piezas de la marca \textit{Loc-Line} (Fig.~\ref{fig:brazo_1}). Estas mangueras se componen de múltiples piezas huecas, cada una se une a la siguiente por medio de una articulación de rótula. PONER AQUI UNA IMAGEN Y DESCRIPCION DE LA ROTULA
+Se usarán entonces las mangueras a piezas de la marca \textit{Loc-Line} (Fig.~\ref{fig:brazo_1}). Estas mangueras se componen de múltiples piezas huecas, cada una se une a la siguiente por medio de una articulación de rótula. Entonces se crea uniones para poder conectar esta manguera con el case principal y con el case de la pantalla. En el caso del case principal se crea un agujero en donde entrará la rótula del primer elemento de la manguera (Fig.~\ref{fig:rotula_principal}) y en el caso de el case de la pantalla se creará un elemento que encajé en el agujero de rótula de la manguera (Fig.~\ref{fig:rotula_pantalla})
+
 
 \begin{figure}[hbt!]
 \centering
@@ -789,14 +791,33 @@ Se usarán entonces las mangueras a piezas de la marca \textit{Loc-Line} (Fig.~\
 \end{figure}
 
 
+\begin{figure}[hbt!]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{rotula_principal.pdf}
+  \caption{Rótula del case principal}
+  \label{fig:rotula_principal}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.97\linewidth]{rotula_pantalla.pdf}
+  \caption{Rótula del case de la pantalla}
+  \label{fig:rotula_pantalla}
+\end{subfigure}
+\caption{Detalles del ensamble de los elementos Loc-Line con las cajas electrónicas}
+\label{fig:rotulas}
+\end{figure}
+
+
 \subsection{Diseño del case de la pantalla}
-El case de la pantalla se puede observar en la Fig.~\ref{fig:exploded_pantalla}. Este case de dimensiones $\SI{43}{mm} \times \SI{49}{mm} \times \SI{21}{mm}$ será impreso en 3D usando también ABS. Para ensamblar las dos partes del case con la pantalla, se inserta la placa electrónica de la pantalla en un agujero con su misma forma en el case inferior de la pantalla. Luego la parte superior del case es ensamblada usando pestañas para el posicionamiento y snap fits para la sujeción.
+El case de la pantalla se puede observar en la Fig.~\ref{fig:exploded_pantalla}. Este case de dimensiones $\SI{43}{mm} \times \SI{49}{mm} \times \SI{21}{mm}$ será impreso también en 3D. Para ensamblar las dos partes del case con la pantalla, se inserta la placa electrónica de la pantalla en un agujero con su misma forma en el case inferior de la pantalla. Luego la parte superior del case es ensamblada usando pestañas para el posicionamiento y snap fits para la sujeción.
 
 \begin{figure}[hbt!]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=0.97\linewidth]{union_pantalla.pdf}
+  \includegraphics[width=0.9\linewidth]{union_pantalla.pdf}
   \caption{Unión del Case de la Pantalla}
   \label{fig:union_pantalla}
 \end{subfigure}%
@@ -814,9 +835,9 @@ El case de la pantalla se puede observar en la Fig.~\ref{fig:exploded_pantalla}.
 La parte superior del case presiona a la placa electrónica  de la pantalla contra la parte inferior del case usando 4 columnas. Esto se puede observar en la Fig.~\ref{fig:union_pantalla}. Además el snap fit (Fig.~\ref{fig:snap_pantalla}) de este ensamble es distinto del usado en el case principal. En esta ocasión el ángulo de entrada es \SI{45}{\degree} pero el ángulo de salida es \SI{90}{\degree}. Esto significa que la unión es inseparable, ya que el ángulo de entrada permitirá el ensamble y el de salida lo impedirá. Esto se debe a que la pantalla se podrá mover para acomodarse al conductor en cada situación, lo que hace necesario que el case no se separe por error.
 
 
-\begin{figure}[hbtp!]
+\begin{figure}[hbt!]
 \centering
-\includegraphics[width=\textwidth]{exploded_2.pdf}
+\includegraphics[width=0.8\textwidth]{exploded_2.pdf}
 \caption{Vista de explosión del case de la pantalla.}
 \label{fig:exploded_pantalla}
 \end{figure}
