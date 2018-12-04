@@ -175,9 +175,9 @@ Cambio de carril agresivo (izquierda) & 83 \\ \bottomrule
 
 Otro algoritmo aplicado usualmente al reconocimiento de estilos de manejo es el uso de {\it Redes Neuronales}. \citeauthor{7727682} \cite{7727682} utilizó redes neuronales para clasificar estilos de manejo y {\it Algoritmos Genéticos} para optimizar estas redes e incluso elegir los parámetros de entrada. El sistema que propuso se enfocaba en obtener un clasificador que pueda ser utilizado por un sistema embebido de potencia baja. Por lo cuál utilizo un tipo de red neuronal llamado {\it Extreme Learning Machines}. Este tipo de red neuronal, como se observa en la Fig.~\ref{fig:2.6}, se caracteriza por tener tan solo una capa oculta entre las entradas y las salidas. Además se eligen los pesos entre las entradas y la única capa oculta de manera aleatoria y nunca se actualizan. Esta red neuronal solo aprende los pesos entre la capa oculta y las salidas en una sola iteración. Por esta razón este tipo de red resulta siendo muy ligero y de entrenamiento muy veloz.
 
-\begin{figure}[htpb!]
+\begin{figure}[htb!]
 \centering
-\includegraphics[width=0.8\textwidth]{Fig6}
+\includegraphics[width=0.5\textwidth]{Fig6}
 \caption[Topología de una Red Neuronal usada para Extreme Learning Machines]{Topología de una Red Neuronal usada para Extreme Learning Machines \cite{7727682}.}
 \label{fig:2.6}
 \end{figure}
@@ -228,7 +228,7 @@ Los acelerómetros nos permiten medir la aceleración longitudinal y lateral, qu
 Estos acelerómetros pueden costar desde \textdollar 2, como el MMA6910KQ \cite{acelerom} que consta de 3 ejes y puede tener un rango de $\pm 3.5$ o $\pm \SI{5.0}{g} $.
 
 \subsection{Smartphone}
-Los smartphones tienen cada vez más y más sensores que pueden ser usados para aplicaciones como las de la presente tesis. En \cite{6083078} se usó los sensores integrados en un Iphone 4 para realizar la tarea de reconociento de estilo de conducción. Estos sensores fueron la cámara trasera (solo para registro), el acelerómetro de 3 ejes, el giroscopio de 3 ejes y el GPS. \newpage
+Los smartphones tienen cada vez más y más sensores que pueden ser usados para aplicaciones como las de la presente tesis. En \cite{6083078} se usó los sensores integrados en un Iphone 4 para realizar la tarea de reconociento de estilo de conducción. Estos sensores fueron la cámara trasera (solo para registro), el acelerómetro de 3 ejes, el giroscopio de 3 ejes y el GPS.
 
 \subsection{Inertial Measurement Unit}
 Esta clase de sensores se puede encontrar bajo un rango de precios muy amplio. Existen unidades por debajo de los \textdollar 10 como el MPU-6050 (Fig.~\ref{fig:2.7}) que cuenta con un giroscopio de 3 ejes y un acelerómetro de 3 ejes; y funciona a un voltaje de \SI[mode=text]{2.3}{V} a \SI[mode=text]{3.4}{V} \cite{invensense}
